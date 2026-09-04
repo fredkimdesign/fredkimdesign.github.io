@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fbfaf8;
+  --color-ink: #16150f;
+  --color-muted: #6b6862;
+  --color-faint: #97938b;
+  --color-rule: #e4e0d8;
+  --color-accent: #9a3f1f;
+  --color-wash: #f3f1ec;
+
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: 4rem;
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.022em;
+}
+
+html {
+  color-scheme: light;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  /* Full-bleed carousels use negative margins; never let that become a horizontal scroll. */
+  overflow-x: clip;
+}
+
+/* The reading column. Case-study prose never exceeds this. */
+@utility measure {
+  max-width: 34rem;
+}
+
+/* Eyebrow labels: section markers, metric bases, metadata keys. */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+@utility prose-body {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  line-height: 1.72;
+  letter-spacing: -0.003em;
+  color: var(--color-ink);
+}
