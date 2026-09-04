@@ -16,10 +16,15 @@ const videoExts = new Set([".mp4", ".mov", ".webm"]);
 // a <video> doesn't jump from ~150px tall to its real height when metadata loads.
 function videoSize(file) {
   try {
-    const out = execFileSync("mdls", ["-name", "kMDItemPixelWidth", "-name", "kMDItemPixelHeight", "-raw", file]).toString();
-    const [w, h] = out.split("\0").map(Number);
+    // mdls emits attributes in ALPHABETICAL order, not the order requested, so
+    // -raw silently transposes width/height. Parse by name instead.
+    const out = execFileSync("mdls", ["-name", "kMDItemPixelWidth", "-name", "kMDItemPixelHeight", file]).toString();
+    const pick = (k) => Number(out.match(new RegExp(`${k}\\s*=\\s*(\\d+)`))?.[1]);
+    const w = pick("kMDItemPixelWidth");
+    const h = pick("kMDItemPixelHeight");
     if (w && h) return { width: w, height: h };
   } catch {}
+  console.warn(`media-dims: could not size ${file} (mdls is macOS-only) - run \`npm run media\` on a Mac and commit src/content/media-dims.json`);
   return null;
 }
 

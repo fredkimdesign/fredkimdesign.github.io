@@ -10,6 +10,7 @@ import {
   type Metric,
   type Para,
 } from "@/lib/case-study";
+import { asset } from "@/lib/asset";
 
 const DIMS = mediaDims as unknown as Record<string, [number, number]>;
 
@@ -38,7 +39,7 @@ function Visual({ media, fixedHeight }: { media: Media; fixedHeight?: boolean })
   if (media.kind === "video") {
     return (
       <video
-        src={media.src}
+        src={asset(media.src)}
         width={w}
         height={h}
         muted={!media.controls}

@@ -1,15 +1,15 @@
 {
-  "/work/sams-club/community-analytics.png": [
-    2560,
-    1150
+  "/work/sams-club/community-analytics.webp": [
+    1800,
+    809
   ],
-  "/work/sams-club/community.png": [
-    2560,
-    1150
+  "/work/sams-club/community.webp": [
+    1800,
+    809
   ],
-  "/work/sams-club/hero.png": [
-    1920,
-    1439
+  "/work/sams-club/hero.webp": [
+    1800,
+    1349
   ],
   "/work/sams-club/ma-demo.gif": [
     800,
@@ -19,176 +19,168 @@
     800,
     451
   ],
-  "/work/sams-club/message-center.png": [
-    2250,
-    2250
+  "/work/sams-club/message-center.webp": [
+    1800,
+    1800
   ],
   "/work/sams-club/mmc-admin.gif": [
     800,
     517
   ],
-  "/work/sams-club/nba-module.png": [
-    2560,
-    1808
+  "/work/sams-club/nba-module.webp": [
+    1800,
+    1271
   ],
-  "/work/sams-club/one-channel.png": [
-    2560,
-    1012
+  "/work/sams-club/one-channel.webp": [
+    1800,
+    712
   ],
-  "/work/sams-club/three-loops.png": [
+  "/work/sams-club/three-loops.webp": [
     1311,
     649
   ],
-  "/work/sams-club/thumb.png": [
-    2000,
-    894
+  "/work/sams-club/thumb.webp": [
+    1800,
+    805
   ],
-  "/work/sams-club/workshop-matrix.png": [
-    2560,
-    2320
+  "/work/sams-club/workshop-matrix.webp": [
+    1800,
+    1631
   ],
-  "/work/tesla/asymmetry.png": [
-    2511,
-    1012
+  "/work/tesla/asymmetry.webp": [
+    1800,
+    725
   ],
-  "/work/tesla/devices.png": [
-    2560,
-    1016
+  "/work/tesla/devices.webp": [
+    1800,
+    714
   ],
-  "/work/tesla/final.png": [
+  "/work/tesla/final.webp": [
     1739,
     1086
   ],
-  "/work/tesla/frame.png": [
+  "/work/tesla/frame.webp": [
     1276,
     1170
   ],
-  "/work/tesla/hero.png": [
-    2560,
-    1773
+  "/work/tesla/hero.webp": [
+    1800,
+    1247
   ],
-  "/work/tesla/layouts.png": [
+  "/work/tesla/layouts.webp": [
     1393,
     663
   ],
-  "/work/tesla/module-slots.png": [
-    2560,
-    1756
+  "/work/tesla/module-slots.webp": [
+    1800,
+    1235
   ],
-  "/work/tesla/modules.png": [
-    2560,
-    1756
+  "/work/tesla/modules.webp": [
+    1800,
+    1235
   ],
-  "/work/tesla/prototype.mov": [
-    832,
-    1280
+  "/work/tesla/prototype.mp4": [
+    1280,
+    832
   ],
-  "/work/tesla/thumb.png": [
-    2000,
-    1500
+  "/work/tesla/thumb.webp": [
+    1800,
+    1350
   ],
-  "/work/tesla/v1.png": [
+  "/work/tesla/v1.webp": [
     1737,
     1086
   ],
-  "/work/twitter/api-designer.png": [
-    2560,
-    1440
+  "/work/twitter/api-designer.webp": [
+    1800,
+    1012
   ],
-  "/work/twitter/audit.png": [
-    2560,
-    1923
+  "/work/twitter/audit.webp": [
+    1800,
+    1352
   ],
-  "/work/twitter/dataviz-book.png": [
-    2182,
-    1570
+  "/work/twitter/dataviz-book.webp": [
+    1800,
+    1295
   ],
-  "/work/twitter/dataviz-palette.png": [
-    1614,
-    1378
+  "/work/twitter/explorations.webp": [
+    1800,
+    802
   ],
-  "/work/twitter/explorations.png": [
-    2560,
-    1140
-  ],
-  "/work/twitter/grafana-old.png": [
+  "/work/twitter/grafana-old.webp": [
     1200,
     780
   ],
-  "/work/twitter/graphql-java.png": [
-    2560,
-    1440
+  "/work/twitter/graphql-java.webp": [
+    1800,
+    1012
   ],
-  "/work/twitter/grid-charts.png": [
-    2056,
-    1408
+  "/work/twitter/grid-charts.webp": [
+    1800,
+    1233
   ],
-  "/work/twitter/hero.png": [
-    2560,
-    1751
+  "/work/twitter/hero.webp": [
+    1800,
+    1231
   ],
-  "/work/twitter/hifi.png": [
-    2560,
-    1735
+  "/work/twitter/hifi.webp": [
+    1800,
+    1220
   ],
   "/work/twitter/interview-danielle.mp4": [
-    720,
-    1280
+    1280,
+    720
   ],
   "/work/twitter/interview-kelly.mp4": [
-    720,
-    1280
+    1280,
+    720
   ],
-  "/work/twitter/journey.png": [
-    2560,
-    813
+  "/work/twitter/journey.webp": [
+    1800,
+    572
   ],
-  "/work/twitter/paper-notes.jpeg": [
+  "/work/twitter/paper-notes.webp": [
     1280,
     961
   ],
-  "/work/twitter/redbird.png": [
-    1431,
-    719
+  "/work/twitter/redcurve-proto.mp4": [
+    1280,
+    832
   ],
-  "/work/twitter/redcurve-proto.mov": [
-    832,
-    1280
+  "/work/twitter/redcurve.webp": [
+    1800,
+    1012
   ],
-  "/work/twitter/redcurve.png": [
-    2560,
-    1440
+  "/work/twitter/requirements.webp": [
+    1800,
+    920
   ],
-  "/work/twitter/requirements.png": [
-    2560,
-    1309
-  ],
-  "/work/twitter/search-old.png": [
+  "/work/twitter/search-old.webp": [
     1202,
     780
   ],
-  "/work/twitter/search-results.png": [
-    2560,
-    1440
+  "/work/twitter/search-results.webp": [
+    1800,
+    1012
   ],
-  "/work/twitter/thumb.png": [
-    2000,
-    895
+  "/work/twitter/thumb.webp": [
+    1800,
+    806
   ],
-  "/work/twitter/user-stories.png": [
-    2560,
-    1294
+  "/work/twitter/user-stories.webp": [
+    1800,
+    910
   ],
-  "/work/walmart/item-carousel.png": [
-    2560,
-    1786
+  "/work/walmart/item-carousel.webp": [
+    1800,
+    1256
   ],
-  "/work/walmart/tenants.png": [
+  "/work/walmart/tenants.webp": [
     668,
     752
   ],
-  "/work/walmart/tokens-doc.png": [
-    2560,
-    1542
+  "/work/walmart/tokens-doc.webp": [
+    1800,
+    1084
   ]
 }

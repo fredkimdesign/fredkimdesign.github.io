@@ -17,9 +17,9 @@ export const walmart: CaseStudy = {
   role: "Senior UX Designer, Design Systems",
   collaborators: ["TODO — orgs, tenants, engineering partners"],
   disciplines: ["Enterprise", "Design systems", "Multi-tenancy"],
-  thumb: { src: "/work/walmart/tenants.png", alt: "Walmart, Sam's Club, Member's Mark, and Bodega Aurrera logos" },
+  thumb: { src: "/work/walmart/tenants.webp", alt: "Walmart, Sam's Club, Member's Mark, and Bodega Aurrera logos" },
   hero: {
-    src: "/work/walmart/item-carousel.png",
+    src: "/work/walmart/item-carousel.webp",
     alt: "Item Carousel component spec: copy limits, 4-up and 2-up layouts, light and dark mode",
   },
 
@@ -32,7 +32,7 @@ export const walmart: CaseStudy = {
       "A tenant's preferred pattern isn't automatically wrong, and the system can't overrule one. Adoption is voluntary in practice even where it's mandated on paper.",
     media: [
       {
-        src: "/work/walmart/tenants.png",
+        src: "/work/walmart/tenants.webp",
         alt: "Four tenant logos: Walmart, Sam's Club, Member's Mark, Bodega Aurrera",
         caption: "Four of the tenants. Each one is a business with its own identity and its own reasons to say no.",
       },
@@ -75,7 +75,7 @@ export const walmart: CaseStudy = {
     ],
     media: [
       {
-        src: "/work/walmart/tokens-doc.png",
+        src: "/work/walmart/tokens-doc.webp",
         alt: "Spacing and Layout documentation page for a text area component, annotated with token references and measurements",
         caption: "What 'not negotiable' looks like in practice: spacing, sizing, and padding specified in tokens a tenant can theme but not restructure.",
         width: "full",

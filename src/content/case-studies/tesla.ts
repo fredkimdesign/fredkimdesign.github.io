@@ -10,9 +10,9 @@ export const tesla: CaseStudy = {
   role: "Senior UX Designer, Tesla OS internal tools",
   collaborators: ["Product", "Engineering", "Design"],
   disciplines: ["Enterprise", "Design systems"],
-  thumb: { src: "/work/tesla/thumb.png", alt: "Tesla Account Master on a laptop" },
+  thumb: { src: "/work/tesla/thumb.webp", alt: "Tesla Account Master on a laptop" },
   hero: {
-    src: "/work/tesla/hero.png",
+    src: "/work/tesla/hero.webp",
     alt: "Tesla Account Master on a laptop showing a customer's account, alerts, and products",
   },
 
@@ -25,7 +25,7 @@ export const tesla: CaseStudy = {
       "Internal tooling was mid-transition to a modular, plug-and-play model. Anything I built had to fit the architecture that was arriving.",
     media: [
       {
-        src: "/work/tesla/asymmetry.png",
+        src: "/work/tesla/asymmetry.webp",
         alt: "The Tesla customer app beside a cascade of five advisor tools: Sales, Fleet, Admin, Energy, Scheduling",
         caption: "One screen versus five. The customer never saw this gap; the advisor lived in it.",
         width: "full",
@@ -40,7 +40,7 @@ export const tesla: CaseStudy = {
     ],
     media: [
       {
-        src: "/work/tesla/frame.png",
+        src: "/work/tesla/frame.webp",
         alt: "Hub diagram: Customer Overview at center, with Products, Notifications, Account, and History around it, and ten tool families on the outer ring",
         caption: "The frame. Four things fixed at the center; ten tool families that plug into the ring.",
       },
@@ -67,12 +67,12 @@ export const tesla: CaseStudy = {
         layout: "row",
         items: [
           {
-            src: "/work/tesla/module-slots.png",
+            src: "/work/tesla/module-slots.webp",
             alt: "Energy and Sales tool windows with a highlighted slot where the Stream module attaches",
             caption: "The slot. A module has to fit here, in every host, at every size.",
           },
           {
-            src: "/work/tesla/modules.png",
+            src: "/work/tesla/modules.webp",
             alt: "The Stream communication module rendered inside Energy, Sales, and a mobile host",
             caption: "The same module, three hosts. What 'plug-and-play' had to mean in practice.",
           },
@@ -93,24 +93,24 @@ export const tesla: CaseStudy = {
           layout: "carousel",
           items: [
             {
-              src: "/work/tesla/layouts.png",
+              src: "/work/tesla/layouts.webp",
               alt: "Five low-fidelity layout options for Account Master",
               caption: "Five layouts. Which information is fixed, and which is a module?",
             },
             {
-              src: "/work/tesla/v1.png",
+              src: "/work/tesla/v1.webp",
               alt: "Early Account Master: dense three-column layout with account, alerts, products, payments, and activity",
               caption: "Early. Everything visible, nothing prioritized.",
             },
             {
-              src: "/work/tesla/final.png",
+              src: "/work/tesla/final.webp",
               alt: "Final Account Master: account card on the left, product cards on the right",
               caption: "Final. The account card is fixed; products are the first module.",
             },
           ],
         },
         {
-          src: "/work/tesla/prototype.mov",
+          src: "/work/tesla/prototype.mp4",
           kind: "video",
           alt: "Prototype walkthrough of Account Master",
           caption: "The prototype: search a customer, land on one view, drill into a product.",
@@ -125,7 +125,7 @@ export const tesla: CaseStudy = {
       ],
       media: [
         {
-          src: "/work/tesla/devices.png",
+          src: "/work/tesla/devices.webp",
           alt: "Account Master on phone, laptop, and tablet",
           caption: "Same frame, three form factors.",
           width: "full",

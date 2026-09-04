@@ -11,9 +11,9 @@ export const twitter: CaseStudy = {
   role: "Senior Product Designer, Redbird",
   collaborators: ["Engineering", "Product", "Research", "Design Systems"],
   disciplines: ["Enterprise", "Developer tools", "Design systems"],
-  thumb: { src: "/work/twitter/thumb.png", alt: "Twitter internal tools on a laptop" },
+  thumb: { src: "/work/twitter/thumb.webp", alt: "Twitter internal tools on a laptop" },
   hero: {
-    src: "/work/twitter/hero.png",
+    src: "/work/twitter/hero.webp",
     alt: "go/Find, Twitter's internal search, on a laptop",
   },
 
@@ -29,12 +29,12 @@ export const twitter: CaseStudy = {
         layout: "row",
         items: [
           {
-            src: "/work/twitter/search-old.png",
+            src: "/work/twitter/search-old.webp",
             alt: "The legacy go/Find search interface",
             caption: "go/Find before. It worked, in the sense that it returned results.",
           },
           {
-            src: "/work/twitter/grafana-old.png",
+            src: "/work/twitter/grafana-old.webp",
             alt: "A Grafana capacity dashboard being shared over a video call",
             caption: "RedCurve before: one large number, no visible reasoning. Engineers ignored it.",
           },
@@ -79,12 +79,12 @@ export const twitter: CaseStudy = {
         layout: "row",
         items: [
           {
-            src: "/work/twitter/user-stories.png",
+            src: "/work/twitter/user-stories.webp",
             alt: "Interview synthesis board grouped by user story: core API engineers, backend engineers, client engineers",
             caption: "Synthesis by story. The third column — client engineers unblocking themselves — became API Designer's reason to exist.",
           },
           {
-            src: "/work/twitter/paper-notes.jpeg",
+            src: "/work/twitter/paper-notes.webp",
             alt: "Notebook sketches of the capacity dashboard and the throughput formula",
             caption: "The weighted-RPS formula by hand, before drawing anything. You can't design a number you don't understand.",
           },
@@ -113,12 +113,12 @@ export const twitter: CaseStudy = {
         layout: "row",
         items: [
           {
-            src: "/work/twitter/requirements.png",
+            src: "/work/twitter/requirements.webp",
             alt: "Technical design doc for the new go/Find with product UI requirements and engineer comments",
             caption: "The bet written down. Accessible UI is a P0; engineers are commenting in the margins.",
           },
           {
-            src: "/work/twitter/explorations.png",
+            src: "/work/twitter/explorations.webp",
             alt: "Three concept directions for go/Find: MVP, MVP+, and Modern",
             caption: "Three directions. V2 won: a search box should look like it wants to be typed in.",
           },
@@ -139,11 +139,11 @@ export const twitter: CaseStudy = {
           layout: "row",
           items: [
             {
-              src: "/work/twitter/search-results.png",
+              src: "/work/twitter/search-results.webp",
               alt: "go/Find results page with source filters, top hits, and people results",
             },
             {
-              src: "/work/twitter/hifi.png",
+              src: "/work/twitter/hifi.webp",
               alt: "Four go/Find screens: results, no results, refine your search, and a 404",
             },
           ],
@@ -162,19 +162,19 @@ export const twitter: CaseStudy = {
           layout: "carousel",
           items: [
             {
-              src: "/work/twitter/journey.png",
+              src: "/work/twitter/journey.webp",
               alt: "Service-owner journey from capacity test through inspection to requesting capacity, with open questions annotated",
               caption: "The journey with its questions left on. 'Trust result?' is the diamond the redesign is about.",
             },
             {
-              src: "/work/twitter/redcurve.png",
+              src: "/work/twitter/redcurve.webp",
               alt: "RedCurve dashboard on a monitor: service summary, recommendation, and taskrun performance charts",
               caption: "The recommendation now sits beside the data that produced it.",
             },
           ],
         },
         {
-          src: "/work/twitter/redcurve-proto.mov",
+          src: "/work/twitter/redcurve-proto.mp4",
           kind: "video",
           alt: "Prototype walkthrough of the RedCurve dashboard",
           caption: "The prototype: from service summary to a capacity request without leaving the page.",
@@ -189,7 +189,7 @@ export const twitter: CaseStudy = {
       ],
       media: [
         {
-          src: "/work/twitter/api-designer.png",
+          src: "/work/twitter/api-designer.webp",
           alt: "API Designer schema sandbox: select type, manage fields, preview operation",
           width: "full",
         },
@@ -206,17 +206,17 @@ export const twitter: CaseStudy = {
           layout: "carousel",
           items: [
             {
-              src: "/work/twitter/audit.png",
+              src: "/work/twitter/audit.webp",
               alt: "Audit grid of Kibana, Datadog, Prometheus, Splunk, Tableau, and Grafana dashboards",
               caption: "What everyone else does, before deciding what we do.",
             },
             {
-              src: "/work/twitter/dataviz-book.png",
+              src: "/work/twitter/dataviz-book.webp",
               alt: "Spread from the data visualization guideline showing palette rules and diverging data",
               caption: "The guideline.",
             },
             {
-              src: "/work/twitter/grid-charts.png",
+              src: "/work/twitter/grid-charts.webp",
               alt: "Feather grid chart components: bar, diverging, line, grouped, sequential, area, stacked",
               caption: "The components. Each one maps to a rule in the book.",
             },
@@ -232,7 +232,7 @@ export const twitter: CaseStudy = {
       ],
       media: [
         {
-          src: "/work/twitter/graphql-java.png",
+          src: "/work/twitter/graphql-java.webp",
           alt: "GraphQL Java compare-test-runs dashboard on a laptop",
           width: "full",
         },

@@ -11,9 +11,9 @@ export const samsClub: CaseStudy = {
   role: "Senior UX Designer — primary designer, end to end",
   collaborators: ["Product", "Engineering", "Marketing", "Content", "Legal"],
   disciplines: ["Consumer", "Enterprise", "Design systems"],
-  thumb: { src: "/work/sams-club/thumb.png", alt: "Sam's Club Message Center on a phone" },
+  thumb: { src: "/work/sams-club/thumb.webp", alt: "Sam's Club Message Center on a phone" },
   hero: {
-    src: "/work/sams-club/hero.png",
+    src: "/work/sams-club/hero.webp",
     alt: "Sam's Club app account screen beside the Member's Mark Community admin portal",
   },
 
@@ -26,7 +26,7 @@ export const samsClub: CaseStudy = {
       "Message Center was net-new surface in an app members already knew. No mental model existed for it, and nobody reads an onboarding tour.",
     media: [
       {
-        src: "/work/sams-club/one-channel.png",
+        src: "/work/sams-club/one-channel.webp",
         alt: "Diagram: of four possible channels between Sam's Club and members, only marketing email is active",
         caption:
           "Four channels drawn, one lit. Every member who ignored email was invisible to all of them.",
@@ -43,7 +43,7 @@ export const samsClub: CaseStudy = {
     ],
     media: [
       {
-        src: "/work/sams-club/three-loops.png",
+        src: "/work/sams-club/three-loops.webp",
         alt: "Three-panel illustration: a member shopping with her phone, a member at home on a laptop, a marketer at a desk",
         caption: "The three people in the loop. Two of them are members; the system only knew how to talk to one.",
         width: "full",
@@ -80,7 +80,7 @@ export const samsClub: CaseStudy = {
           layout: "row",
           items: [
             {
-              src: "/work/sams-club/message-center.png",
+              src: "/work/sams-club/message-center.webp",
               alt: "Two phones: the account screen with a 'You have 2 new messages' badge row, and the Messages inbox",
             },
             {
@@ -103,7 +103,7 @@ export const samsClub: CaseStudy = {
           layout: "row",
           items: [
             {
-              src: "/work/sams-club/community.png",
+              src: "/work/sams-club/community.webp",
               alt: "The member-facing community app beside the admin Campaigns table",
             },
             {
@@ -126,7 +126,7 @@ export const samsClub: CaseStudy = {
           layout: "carousel",
           items: [
             {
-              src: "/work/sams-club/workshop-matrix.png",
+              src: "/work/sams-club/workshop-matrix.webp",
               alt: "Impact/effort matrix from the workshop with clustered sticky notes",
               caption: "Session three. Almost everything high-impact was also high-effort.",
             },
@@ -136,7 +136,7 @@ export const samsClub: CaseStudy = {
               caption: "The workflow prototype.",
             },
             {
-              src: "/work/sams-club/nba-module.png",
+              src: "/work/sams-club/nba-module.webp",
               alt: "Next Best Action module spec across desktop and mobile, with and without the member's name",
               caption: "Next Best Action: three nudges, with a fallback for members we can't name.",
             },
@@ -163,7 +163,7 @@ export const samsClub: CaseStudy = {
     ],
     media: [
       {
-        src: "/work/sams-club/community-analytics.png",
+        src: "/work/sams-club/community-analytics.webp",
         alt: "Campaign performance dashboard with response-rate charts and participation bars, beside the member survey on a phone",
         caption: "The analytics view we cut. It was designed, it was good, and it was the right thing to give up for the launch date.",
         width: "full",
