@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# fredkim.co
 
-## Getting Started
+Portfolio site for Fred Kim, product designer. Live at
+**https://fredkimdesign.github.io**.
 
-First, run the development server:
+Next.js 16 (App Router) + Tailwind 4, statically exported and deployed to
+GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
+
+## Case studies
+
+Each study is a typed object, not MDX — the schema in
+[`src/lib/case-study.ts`](src/lib/case-study.ts) makes the structure a compile
+error to get wrong. Every study argues the same six beats in the same order:
+
+| Beat | What it has to do |
+| --- | --- |
+| Stakes | What was true before, and what it cost |
+| The read | What I understood that wasn't obvious |
+| The bet | A decision, with the roads not taken |
+| The work | What shipped, shown rather than narrated |
+| Friction | What fought back, and what I got wrong |
+| Outcome | Numbers, honestly qualified |
+
+Two constraints are enforced by the type system rather than by discipline:
+
+- `bet.rejected` is `[Rejected, ...Rejected[]]` — at least one entry. A bet with
+  no rejected alternative was a preference, not a decision.
+- Every `Metric` carries a `basis` (`realized` / `projected` / `pilot` /
+  `target`) and a `source`. The renderer always prints the basis next to the
+  figure, so a projected number can never be dressed up as a measured one.
+
+Add a study in `src/content/case-studies/`, then register it in
+`index.ts` — array order is page order.
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Assets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Images live in `public/work/<slug>/`. They're pre-compressed to WebP (max
+1800px) because Pages has no image optimizer, and the images are exported with
+transparent backgrounds so they sit directly on the page with no frame or fill.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+After adding or replacing any asset, regenerate the dimensions map so figures
+reserve the right box before they load:
 
-## Learn More
+```bash
+npm run media
+```
 
-To learn more about Next.js, take a look at the following resources:
+This must run on macOS — it reads video dimensions via `mdls`. The generated
+`src/content/media-dims.json` is committed, so CI never runs it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploying
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushing to `main` builds and deploys. `NEXT_PUBLIC_BASE_PATH` is empty for this
+user site at the domain root; a project site at `<user>.github.io/<repo>` would
+set the repo variable `BASE_PATH` to `/<repo>`.
