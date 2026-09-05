@@ -10,14 +10,24 @@ const newsreader = Newsreader({
   style: ["normal", "italic"],
 });
 
+const description =
+  "Product designer working on consumer and enterprise systems at Walmart, Sam's Club, Twitter, and Tesla.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fredkim.co"),
+  metadataBase: new URL("https://fredkimdesign.github.io"),
   title: {
     default: "Fred Kim — Product Designer",
     template: "%s — Fred Kim",
   },
-  description:
-    "Product designer working on consumer and enterprise systems at Walmart, Sam's Club, Twitter, and Tesla.",
+  description,
+  openGraph: {
+    title: "Fred Kim — Product Designer",
+    description,
+    url: "/",
+    siteName: "Fred Kim",
+    type: "website",
+  },
+  twitter: { card: "summary", creator: "@fredkimdesign" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -27,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${newsreader.variable} h-full antialiased`}
     >
       <body className="bg-paper text-ink flex min-h-full flex-col">
+        <a href="#main" className="skip-link">Skip to content</a>
         <header className="mx-auto flex w-full max-w-5xl items-baseline justify-between px-8 py-10">
           <Link href="/" className="font-display text-lg tracking-tight">
             Fred Kim
@@ -46,9 +57,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </a>
           </nav>
         </header>
-        <main className="flex-1">{children}</main>
-        <footer className="border-rule mx-auto mt-40 w-full max-w-5xl border-t px-8 py-12 text-sm text-faint">
-          <div className="flex flex-wrap items-baseline justify-between gap-4">
+        <main id="main" className="flex-1">{children}</main>
+        <footer className="mx-auto mt-40 w-full max-w-5xl px-8 text-sm text-faint">
+          <div className="border-rule flex flex-wrap items-baseline justify-between gap-4 border-t py-12">
             <a
               href="mailto:fredkimdesign@gmail.com"
               className="hover:text-ink transition-colors"

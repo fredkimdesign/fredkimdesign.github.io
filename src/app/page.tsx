@@ -31,7 +31,7 @@ export default function Home() {
                     alt={s.thumb.alt}
                     width={w}
                     height={h}
-                    className="max-h-full w-auto max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    className="max-h-full w-auto max-w-full object-contain transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.02]"
                     sizes="(max-width: 640px) 100vw, 32rem"
                   />
                 </div>

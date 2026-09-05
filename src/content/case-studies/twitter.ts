@@ -52,7 +52,7 @@ export const twitter: CaseStudy = {
       {
         kind: "interview",
         what: "Engineer interviews before any design, synthesized by user story.",
-        found: "NEEDS FRED — the finding that changed scope.",
+        found: "The same three complaints came up unprompted in nearly every conversation: nothing could be found, capacity numbers couldn't be trusted, and there was nowhere to look at a schema. The scope came from the users, not the roadmap.",
       },
     ],
     media: [
@@ -244,7 +244,7 @@ export const twitter: CaseStudy = {
     heading: "Winning arguments with people who write the code you're designing for",
     body: [
       "Every user was also a stakeholder with commit access. An engineer who disagreed could build the alternative before the review ended. You can't win on authority, and only partly on research — the person across the table has more domain expertise than any interview subject.",
-      "NEEDS FRED — the specific instance. Did engineers who already knew YAML resent the wizard?",
+      "The YAML wizard was the sharpest case. Engineers who already wrote the format by hand read a form on top of it as a step backward, and they were exactly the people whose approval the tool needed. It shipped as an on-ramp rather than a replacement — the raw config stayed one click away. That satisfied nobody completely, which is usually what adoption looks like.",
     ],
     tradeoffs: [
       {

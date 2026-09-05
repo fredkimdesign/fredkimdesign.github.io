@@ -1,13 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 export type Slide = { src: string; alt: string; caption?: string; w: number; h: number };
+
+function Chevron({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d={dir === "left" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 /**
  * A plain slideshow: one image at a time, crossfading in place. Arrows, dots,
  * keyboard left/right when focused, swipe on touch. Nothing moves sideways.
+ * On small screens the arrows move into the control row so they never sit on
+ * top of the image.
  */
 export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: string }) {
   const [i, setI] = useState(0);
@@ -15,14 +31,13 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
   const n = slides.length;
   const go = useCallback((d: number) => setI((x) => (x + d + n) % n), [n]);
 
-  useEffect(() => {
-    if (slides[i]?.src.endsWith(".gif")) return;
-  }, [i, slides]);
+  const arrowBtn =
+    "text-muted hover:text-ink flex h-10 w-10 items-center justify-center rounded-full transition-colors";
 
   return (
     <figure>
       <div
-        className="group relative outline-none"
+        className="group relative rounded-sm"
         tabIndex={0}
         role="region"
         aria-roledescription="slideshow"
@@ -67,28 +82,31 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
               type="button"
               onClick={() => go(-1)}
               aria-label="Previous"
-              className="text-faint hover:text-ink absolute top-1/2 -left-3 -translate-y-1/2 p-3 text-2xl leading-none transition-colors sm:-left-12"
+              className={`${arrowBtn} absolute top-1/2 -left-14 hidden -translate-y-1/2 sm:flex`}
             >
-              ←
+              <Chevron dir="left" />
             </button>
             <button
               type="button"
               onClick={() => go(1)}
               aria-label="Next"
-              className="text-faint hover:text-ink absolute top-1/2 -right-3 -translate-y-1/2 p-3 text-2xl leading-none transition-colors sm:-right-12"
+              className={`${arrowBtn} absolute top-1/2 -right-14 hidden -translate-y-1/2 sm:flex`}
             >
-              →
+              <Chevron dir="right" />
             </button>
           </>
         )}
       </div>
 
-      <div className="mt-6 flex items-start justify-between gap-8">
+      <div className="mt-6 flex flex-col-reverse gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
         <figcaption className="measure min-h-[2.5rem] text-sm leading-relaxed text-muted">
           {slides[i]?.caption ?? caption}
         </figcaption>
         {n > 1 && (
-          <div className="flex shrink-0 items-center gap-3 pt-1">
+          <div className="flex shrink-0 items-center justify-end gap-3 sm:justify-start">
+            <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`${arrowBtn} -my-2 sm:hidden`}>
+              <Chevron dir="left" />
+            </button>
             <span className="eyebrow tabular-nums">
               {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
             </span>
@@ -104,6 +122,9 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
                 />
               ))}
             </div>
+            <button type="button" onClick={() => go(1)} aria-label="Next" className={`${arrowBtn} -my-2 sm:hidden`}>
+              <Chevron dir="right" />
+            </button>
           </div>
         )}
       </div>

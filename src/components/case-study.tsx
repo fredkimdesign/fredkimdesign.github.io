@@ -46,6 +46,7 @@ function Visual({ media, fixedHeight }: { media: Media; fixedHeight?: boolean })
         loop={!media.controls}
         autoPlay={!media.controls}
         controls={media.controls}
+        aria-label={media.alt}
         playsInline
         preload="metadata"
         className={`${size} rounded-xl shadow-[0_24px_60px_-24px_rgba(22,21,15,0.35)]`}
@@ -152,7 +153,7 @@ function Beat({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-rule border-t pt-16 sm:pt-20">
+    <section className="border-rule border-t pt-14 sm:pt-16">
       <div className="mb-8 flex items-baseline gap-3">
         <span className="eyebrow tabular-nums">{String(index).padStart(2, "0")}</span>
         <span className="eyebrow">{marker}</span>
@@ -179,7 +180,7 @@ function Constraint({ text }: { text: string }) {
 function MetricCard({ metric }: { metric: Metric }) {
   return (
     <div className="border-rule flex flex-col border-t pt-5">
-      <div className="font-display text-4xl leading-none tracking-tight sm:text-[2.75rem]">
+      <div className="font-display text-4xl leading-none tracking-tight tabular-nums lining-nums sm:text-[2.75rem]">
         {metric.value}
       </div>
       <div className="mt-3 text-sm leading-snug text-ink">{metric.label}</div>
@@ -263,10 +264,13 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
           <Prose body={study.bet.body} />
           <div className="mt-14">
             <div className="eyebrow mb-5">What I argued against</div>
-            <ul className="grid gap-4 sm:grid-cols-2">
+            <ul className="border-rule border-t">
               {study.bet.rejected.map((r, i) => (
-                <li key={i} className="bg-wash rounded-lg p-7">
-                  <p className="font-display mb-3 text-lg leading-snug">{r.option}</p>
+                <li
+                  key={i}
+                  className="border-rule grid gap-3 border-b py-7 sm:grid-cols-[minmax(0,18rem)_1fr] sm:gap-10"
+                >
+                  <p className="font-display text-lg leading-snug text-balance">{r.option}</p>
                   <p className="text-sm leading-relaxed text-muted">{r.why}</p>
                 </li>
               ))}

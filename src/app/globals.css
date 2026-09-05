@@ -4,7 +4,7 @@
   --color-paper: #fbfaf8;
   --color-ink: #16150f;
   --color-muted: #6b6862;
-  --color-faint: #97938b;
+  --color-faint: #74706a;
   --color-rule: #e4e0d8;
   --color-accent: #9a3f1f;
   --color-wash: #f3f1ec;
@@ -22,8 +22,37 @@ html {
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
   scroll-behavior: smooth;
 }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+h1, h2, h3 {
+  hanging-punctuation: first;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Visually hidden until focused; first tab stop on every page. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 50;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: 0.875rem;
+  border-radius: 4px;
+}
+.skip-link:focus { top: 1rem; }
 
 body {
   font-family: var(--font-sans);
@@ -43,7 +72,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-faint);
+  color: var(--color-muted);
 }
 
 @utility prose-body {
@@ -52,4 +81,20 @@ body {
   line-height: 1.72;
   letter-spacing: -0.003em;
   color: var(--color-ink);
+  text-wrap: pretty;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+/* Inline links: a hairline underline that darkens on hover. */
+@utility link {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-rule);
+  transition: color 0.2s, text-decoration-color 0.2s;
+  &:hover {
+    color: var(--color-ink);
+    text-decoration-color: var(--color-ink);
+  }
 }

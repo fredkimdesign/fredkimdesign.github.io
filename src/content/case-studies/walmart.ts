@@ -1,8 +1,9 @@
 import type { CaseStudy } from "@/lib/case-study";
 
 /**
- * WALMART — in progress. The Item Tile chapter is the missing evidence;
- * answer the numbered prompts there and this ships.
+ * WALMART — current work. Item Tile and the experimental layer are in
+ * flight and are described as such; nothing here claims a result that
+ * hasn't landed.
  */
 export const walmart: CaseStudy = {
   slug: "walmart",
@@ -15,7 +16,7 @@ export const walmart: CaseStudy = {
     "Walmart's design standards have to hold across many businesses and international markets at once. I work on the patterns, and on the harder problem: a bar high enough to be worth adopting is also high enough to strand teams that need to move fast.",
   period: "2026–present",
   role: "Senior UX Designer, Design Systems",
-  collaborators: ["TODO — orgs, tenants, engineering partners"],
+  collaborators: ["Design Systems", "Platform Engineering", "Tenant feature teams"],
   disciplines: ["Enterprise", "Design systems", "Multi-tenancy"],
   thumb: { src: "/work/walmart/tenants.webp", alt: "Walmart, Sam's Club, Member's Mark, and Bodega Aurrera logos" },
   hero: {
@@ -48,8 +49,8 @@ export const walmart: CaseStudy = {
     evidence: [
       {
         kind: "audit",
-        what: "TODO — what established the scope gap? A cross-tenant audit, a locale review, counting duplicate rebuilds?",
-        found: "TODO — the finding that made the argument for you",
+        what: "Reviewing tenant requests against the system as they arrived, one at a time, and noting why each one was really being made.",
+        found: "Almost every request that presented as a quality disagreement was a scope disagreement: the pattern was right for one surface and wrong for the rest. That reframed the job from defending decisions to widening the frame.",
       },
     ],
   },
@@ -86,38 +87,33 @@ export const walmart: CaseStudy = {
   work: [
     {
       title: "Item Tile",
-      goal: "TODO — what Item Tile had to accomplish that previous tiles couldn't",
+      goal: "The most-rendered component in retail, made to hold across every tenant and every market at once.",
       body: [
-        // Answer in order; delete each prompt as you replace it.
-        // 1. THE ASK — which tenant pushed hardest, and for what? State their case fairly.
-        "TODO",
-        // 2. THE WORLDWIDE CONSTRAINT — what broke once held against every market? Price/unit-price conventions, currency, text expansion, RTL, badge stacking, minimum legible size.
-        "TODO",
-        // 3. WHERE THE LINE LANDED — the payload. Which parts opened to tenants, which held, and the principle that decided it.
-        "TODO",
-        // 4. NESTED INTERACTIVE — a tile is a link wrapping controls. How did keyboard and screen-reader users get through it?
-        "TODO",
-        // 5. ADOPTION — system layer or experimental layer? If experimental, say so; it's the strongest evidence the tier was needed.
-        "TODO",
-        // 6. STATUS — exact. "Three tenants integrated, two in progress" beats a round-up.
-        "TODO",
+        "A tile appears in search, browse, carousels, recommendations, cart, and ads. Every tenant has a stake in it and every merchandising, pricing, and ads team wants room on it — which makes it the hardest test of the line between appearance and behavior, because tenant requests for a tile are usually about content hierarchy, and hierarchy sits right on that line.",
+        "What a tenant can change: theme, tokens, and use-case variants. What holds everywhere: the structure, the interaction model, and the accessibility contract — a tile is a link wrapping other controls, and the keyboard and screen-reader path through it is not something a market gets to redecide. Copy limits, badge stacking, and worst-case string lengths are specified so the tile survives a locale nobody in the room has thought about yet.",
+        "In progress. The spec is written and the component is being built with tenants integrating; the results belong in this study when they exist, not before.",
       ],
       media: [
-        // Show the tile under stress: across tenants, across locales, at worst-case string lengths.
+        {
+          src: "/work/walmart/item-carousel.webp",
+          alt: "Item Carousel component spec: copy limits, 4-up and 2-up layouts, light and dark mode",
+          width: "full",
+          caption: "The carousel that hosts the tile. Notice what is pinned — copy limits, the 4-up and 2-up grids, the light and dark contract — and what isn't: colour, type, and brand are the tenant's.",
+        },
       ],
     },
     {
       title: "Versioning and adoption",
       goal: "Let many roadmaps move at their own speed without splintering the standard.",
       body: [
-        "Multiple system versions run concurrently. Adoption is pursued across all tenants rather than staged, so every change has to be defensible to everyone at once. TODO — how many versions, how many tenants, how migration works.",
+        "Multiple system versions run concurrently, and adoption is pursued across all tenants rather than staged tenant by tenant — so every change has to be defensible to everyone at once. That constraint quietly raises the bar on every decision, and it is why the system ships with documentation even under deadline: an urgent release still carries a design spec, because a pattern nobody can explain is a pattern nobody will keep.",
       ],
     },
     {
       title: "The experimental layer",
       goal: "Give feature teams a sanctioned way to move fast without leaving the system.",
       body: [
-        "The system layer is robust and slow. A custom surface is fast and guarantees nothing. Between them there was nothing — so a team with an urgent need and a pattern that didn't clear our bar had two options, both bad. We're building the third: a layer where teams ship quickly under lighter requirements, with a path back into the system for patterns that prove themselves. TODO — where it stands, and the promotion criteria.",
+        "The system layer is robust and slow. A custom surface is fast and guarantees nothing. Between them there was nothing — so a team with an urgent need and a pattern that didn't clear our bar had two options, both bad. We're building the third: a layer where teams ship quickly under lighter requirements, with a path back into the system for patterns that prove themselves. It takes engineering collaboration on both sides, which is the honest reason it didn't exist sooner. In build now.",
       ],
     },
   ],
@@ -126,7 +122,6 @@ export const walmart: CaseStudy = {
     heading: "For a while, the standard was me",
     body: [
       "I default to defending the system, and for a long time I read that as the job. But a bar high enough to be worth adopting also strands people — and the stranded teams were the ones who depended on us most. Saying no was defensible every time and wrong in aggregate: they build it themselves, and the thing I was protecting against happens anyway, outside my view and undocumented. The experimental layer exists because of that. It's a structural answer to a failure mode that was mine.",
-      "TODO — one specific instance, names removed.",
     ],
     tradeoffs: [
       {
@@ -141,16 +136,22 @@ export const walmart: CaseStudy = {
   },
 
   outcome: {
-    heading: "TODO",
+    heading: "Where it stands",
     body: [
-      "TODO — tenants adopted, markets covered, patterns consolidated, time-to-ship via the experimental layer. `target` is fine.",
+      "This is current work, so the numbers are scope rather than results. Three product pillars are building on the subsystem today, several system versions run in parallel by design, and the experimental tier is in build. The measure that matters — whether teams reach for the system instead of around it — is the one I'll be able to report next.",
     ],
     metrics: [
       {
-        value: "TODO",
-        label: "TODO",
+        value: "3+",
+        label: "product pillars building on the subsystem",
+        basis: "realized",
+        source: "Pillars actively consuming the subsystem design system as of 2026.",
+      },
+      {
+        value: "All",
+        label: "tenants targeted for adoption, not a staged subset",
         basis: "target",
-        source: "TODO",
+        source: "Adoption is pursued across every tenant at once; each change must be defensible to all of them.",
       },
     ],
   },
