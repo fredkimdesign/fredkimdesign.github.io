@@ -35,11 +35,6 @@ export default function About() {
               lead a youth program in my community.
             </p>
           </div>
-          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-            <a href="mailto:fredkimdesign@gmail.com" className="link">fredkimdesign@gmail.com</a>
-            <a href="https://www.linkedin.com/in/fredjameskim/" className="link">LinkedIn</a>
-            <a href="https://twitter.com/fredkimdesign" className="link">Twitter</a>
-          </div>
         </div>
 
         <aside className="lg:col-span-5 lg:pt-3">
