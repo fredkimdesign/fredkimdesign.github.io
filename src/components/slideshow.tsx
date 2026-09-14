@@ -33,9 +33,11 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
 
   const arrowBtn =
     "text-muted hover:text-ink flex h-10 w-10 items-center justify-center rounded-full transition-colors";
+  // Arrows sit in the control row rather than beside the image: the figure
+  // column bleeds to the viewport edge, so there is no gutter for them there.
 
   return (
-    <figure>
+    <figure className="figure-wide">
       <div
         className="group relative rounded-sm"
         tabIndex={0}
@@ -69,33 +71,13 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
                 height={s.h}
                 unoptimized={s.src.endsWith(".gif")}
                 className="max-h-full w-auto max-w-full object-contain"
-                sizes="(max-width: 1024px) 100vw, 64rem"
+                sizes="(max-width: 1216px) 100vw, 72rem"
                 priority={k === 0}
               />
             </div>
           ))}
         </div>
 
-        {n > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              aria-label="Previous"
-              className={`${arrowBtn} absolute top-1/2 -left-14 hidden -translate-y-1/2 sm:flex`}
-            >
-              <Chevron dir="left" />
-            </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              aria-label="Next"
-              className={`${arrowBtn} absolute top-1/2 -right-14 hidden -translate-y-1/2 sm:flex`}
-            >
-              <Chevron dir="right" />
-            </button>
-          </>
-        )}
       </div>
 
       <div className="mt-6 flex flex-col-reverse gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
@@ -104,7 +86,7 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
         </figcaption>
         {n > 1 && (
           <div className="flex shrink-0 items-center justify-end gap-3 sm:justify-start">
-            <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`${arrowBtn} -my-2 sm:hidden`}>
+            <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`${arrowBtn} -my-2`}>
               <Chevron dir="left" />
             </button>
             <span className="eyebrow tabular-nums">
@@ -122,7 +104,7 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
                 />
               ))}
             </div>
-            <button type="button" onClick={() => go(1)} aria-label="Next" className={`${arrowBtn} -my-2 sm:hidden`}>
+            <button type="button" onClick={() => go(1)} aria-label="Next" className={`${arrowBtn} -my-2`}>
               <Chevron dir="right" />
             </button>
           </div>

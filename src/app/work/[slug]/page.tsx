@@ -1,28 +1,30 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CaseStudyArticle } from "@/components/case-study";
-import { caseStudies, getCaseStudy, publishedCaseStudies } from "@/content/case-studies";
+import { getCaseStudy, publishedCaseStudies } from "@/content/case-studies";
 
+/** Drafts get no route at all — hidden means not reachable by URL either. */
 export function generateStaticParams() {
-  return caseStudies.map((c) => ({ slug: c.slug }));
+  return publishedCaseStudies.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/work/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
+function published(slug: string) {
   const study = getCaseStudy(slug);
+  return study && !study.draft ? study : undefined;
+}
+
+export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const study = published(slug);
   if (!study) return {};
   return { title: study.company, description: study.blurb };
 }
 
-export default async function CaseStudyPage({
-  params,
-}: PageProps<"/work/[slug]">) {
+export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]">) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const study = published(slug);
   if (!study) notFound();
   const i = publishedCaseStudies.findIndex((c) => c.slug === study.slug);
-  const next = i >= 0 ? publishedCaseStudies[(i + 1) % publishedCaseStudies.length] : undefined;
-  return <CaseStudyArticle study={study} next={next?.slug === study.slug ? undefined : next} />;
+  const next = publishedCaseStudies[(i + 1) % publishedCaseStudies.length];
+  return <CaseStudyArticle study={study} next={next.slug === study.slug ? undefined : next} />;
 }

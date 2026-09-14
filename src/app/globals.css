@@ -65,6 +65,12 @@ body {
   max-width: 34rem;
 }
 
+/* The figure column: the full content width. Text stays at `measure`. */
+@utility figure-wide {
+  width: 100%;
+  max-width: none;
+}
+
 /* Eyebrow labels: section markers, metric bases, metadata keys. */
 @utility eyebrow {
   font-family: var(--font-sans);

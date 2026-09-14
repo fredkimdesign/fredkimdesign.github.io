@@ -31,7 +31,7 @@ export function BeatRail({ beats }: { beats: Beat[] }) {
   return (
     <nav
       aria-label="Sections"
-      className="fixed top-1/2 left-[max(1.5rem,calc((100vw-64rem)/2-9rem))] hidden -translate-y-1/2 xl:block"
+      className="fixed top-1/2 left-[max(1.5rem,calc((100vw-76rem)/2-8.5rem))] hidden -translate-y-1/2 2xl:block"
     >
       <ol className="space-y-3">
         {beats.map((b) => {

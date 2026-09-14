@@ -10,7 +10,7 @@ const roles = [
 
 export default function About() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-8 pt-24 pb-8 sm:pt-32">
+    <div className="mx-auto w-full max-w-[76rem] px-8 pt-24 pb-8 sm:pt-32">
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
           <h1 className="font-display text-4xl leading-[1.08] tracking-tight text-balance sm:text-[3.25rem]">

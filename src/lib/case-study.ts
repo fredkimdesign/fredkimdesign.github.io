@@ -140,8 +140,8 @@ export type CaseStudy = {
   disciplines: string[];
   /** Hidden from the index while true. */
   draft?: boolean;
-  /** The closing frame: the shipped thing, shown once at the end of Outcome. */
-  closing?: Media;
+  /** Opens the study, full width, beneath the header. */
+  hero?: Media;
   /** Shown on the index. Transparent background; sits on the paper. */
   thumb?: Media;
 

@@ -8,7 +8,7 @@ import type { CaseStudy } from "@/lib/case-study";
 export const walmart: CaseStudy = {
   slug: "walmart",
   company: "Walmart",
-  draft: false,
+  draft: true,
 
   title:
     "A design system is adopted, not enforced — so the hard part is relational, not technical",

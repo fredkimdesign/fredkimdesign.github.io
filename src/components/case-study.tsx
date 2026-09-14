@@ -82,7 +82,7 @@ export function Figure({ media }: { media: Media }) {
   const spotlight = media.kind === "video";
   const full = spotlight || media.width === "full";
   return (
-    <figure className={`${full ? "col-span-full" : "measure"} ${spotlight ? "my-6" : ""}`}>
+    <figure className={`${full ? "figure-wide" : "measure"} ${spotlight ? "my-6" : ""}`}>
       <Visual media={media} />
       <Caption text={media.caption} />
     </figure>
@@ -93,10 +93,10 @@ function Row({ group }: { group: MediaGroup }) {
   const cols = Math.min(group.items.length, 3);
   const spotlight = group.spotlight || group.items.every((m) => m.kind === "video");
   return (
-    <figure className={spotlight ? "my-6" : ""}>
+    <figure className={`figure-wide ${spotlight ? "my-6" : ""}`}>
       <div
-        className="grid items-start gap-8 sm:gap-10"
-        style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+        className="grid grid-cols-1 items-center gap-10 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
+        style={{ "--cols": cols } as React.CSSProperties}
       >
         {group.items.map((m, i) => (
           <div key={i}>
@@ -157,7 +157,7 @@ function Beat({
   return (
     <section id={`beat-${index}`} className="border-rule scroll-mt-24 border-t pt-14 sm:pt-16">
       <div className="mb-8 flex items-baseline gap-3">
-        <span className="eyebrow tabular-nums">{String(index).padStart(2, "0")}</span>
+        <span className="eyebrow tabular-nums">{String(index + 1).padStart(2, "0")}</span>
         <span className="eyebrow">{marker}</span>
       </div>
       <h2 className="font-display measure mb-9 text-3xl leading-tight tracking-tight text-balance sm:text-[2.25rem]">
@@ -204,28 +204,30 @@ function MetricCard({ metric }: { metric: Metric }) {
 
 /* --------------------------------------------------------------------- study */
 
+// Display number, label, anchor. Overview is 01; section ids stay beat-1..6.
 const BEATS = [
-  [1, "Stakes"],
-  [2, "What I read"],
-  [3, "The bet"],
-  [4, "The work"],
-  [5, "Friction"],
-  [6, "Outcome"],
+  [1, "Overview", "overview"],
+  [2, "Stakes", "beat-1"],
+  [3, "What I read", "beat-2"],
+  [4, "The bet", "beat-3"],
+  [5, "The work", "beat-4"],
+  [6, "Friction", "beat-5"],
+  [7, "Outcome", "beat-6"],
 ] as const;
 
 export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: CaseStudy }) {
   return (
-    <article className="relative mx-auto w-full max-w-5xl px-8 pb-8">
-      <BeatRail beats={BEATS.map(([i, m]) => ({ id: `beat-${i}`, index: i, marker: m }))} />
+    <article className="relative mx-auto w-full max-w-[76rem] px-8 pb-8">
+      <BeatRail beats={BEATS.map(([i, m, id]) => ({ id, index: i, marker: m }))} />
       {/* Header */}
-      <header className="pt-12 pb-16 sm:pt-16 sm:pb-20">
+      <header id="overview" className="scroll-mt-24 pt-12 pb-20 sm:pt-16 sm:pb-24">
         <div className="eyebrow mb-6">{study.company}</div>
         <h1 className="font-display max-w-3xl text-4xl leading-[1.08] tracking-tight text-balance sm:text-[3.25rem]">
           {study.title}
         </h1>
         <p className="measure prose-body mt-8 text-muted">{study.blurb}</p>
 
-        <p className="border-rule mt-14 border-t pt-6 text-sm leading-relaxed text-muted">
+        <p className="mt-12 text-sm leading-relaxed text-muted">
           <span className="text-ink">{study.role}</span>
           <span className="mx-2.5 text-faint" aria-hidden="true">·</span>
           <span className="tabular-nums whitespace-nowrap">{study.period}</span>
@@ -237,6 +239,12 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
           )}
         </p>
       </header>
+
+      {study.hero && (
+        <div className="mb-28 sm:mb-36">
+          <Figure media={{ ...study.hero, width: "full" }} />
+        </div>
+      )}
 
       <div className="space-y-28 sm:space-y-36">
         {/* 01 — Stakes */}
@@ -333,11 +341,6 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
         {/* 06 — Outcome */}
         <Beat index={6} marker="Outcome" heading={study.outcome.heading}>
           <Prose body={study.outcome.body} />
-          {study.closing && (
-            <div className="mt-14">
-              <Figure media={{ ...study.closing, width: "full" }} />
-            </div>
-          )}
           <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {study.outcome.metrics.map((m, i) => (
               <MetricCard key={i} metric={m} />
