@@ -12,9 +12,10 @@ export const samsClub: CaseStudy = {
   collaborators: ["Product", "Engineering", "Marketing", "Content", "Legal"],
   disciplines: ["Consumer", "Enterprise", "Design systems"],
   thumb: { src: "/work/sams-club/thumb.webp", alt: "Sam's Club Message Center on a phone" },
-  hero: {
+  closing: {
     src: "/work/sams-club/hero.webp",
     alt: "Sam's Club app account screen beside the Member's Mark Community admin portal",
+    caption: "Both ends of the loop: the member's account and inbox, and the associates' campaign portal.",
   },
 
   stakes: {

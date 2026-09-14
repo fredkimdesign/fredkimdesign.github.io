@@ -218,7 +218,7 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
     <article className="relative mx-auto w-full max-w-5xl px-8 pb-8">
       <BeatRail beats={BEATS.map(([i, m]) => ({ id: `beat-${i}`, index: i, marker: m }))} />
       {/* Header */}
-      <header className="pt-12 pb-20 sm:pt-16 sm:pb-24">
+      <header className="pt-12 pb-16 sm:pt-16 sm:pb-20">
         <div className="eyebrow mb-6">{study.company}</div>
         <h1 className="font-display max-w-3xl text-4xl leading-[1.08] tracking-tight text-balance sm:text-[3.25rem]">
           {study.title}
@@ -237,12 +237,6 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
           )}
         </p>
       </header>
-
-      {study.hero && (
-        <div className="mb-28 sm:mb-36">
-          <Figure media={{ ...study.hero, width: "full" }} />
-        </div>
-      )}
 
       <div className="space-y-28 sm:space-y-36">
         {/* 01 — Stakes */}
@@ -339,6 +333,11 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
         {/* 06 — Outcome */}
         <Beat index={6} marker="Outcome" heading={study.outcome.heading}>
           <Prose body={study.outcome.body} />
+          {study.closing && (
+            <div className="mt-14">
+              <Figure media={{ ...study.closing, width: "full" }} />
+            </div>
+          )}
           <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {study.outcome.metrics.map((m, i) => (
               <MetricCard key={i} metric={m} />

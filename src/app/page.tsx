@@ -9,9 +9,10 @@ export default function Home() {
   return (
     <div className="mx-auto w-full max-w-5xl px-8">
       <section className="py-24 sm:py-36">
+        <div className="eyebrow mb-6">Product designer</div>
         <h1 className="font-display max-w-3xl text-4xl leading-[1.06] tracking-tight text-balance sm:text-6xl">
-          Product designer. I work on systems where the interface is the
-          smallest part of the problem.
+          I work on systems where the interface is the smallest part of the
+          problem.
         </h1>
         <p className="measure prose-body mt-10 text-muted">
           Currently at Walmart. Previously Sam&rsquo;s Club, Twitter, and Tesla.

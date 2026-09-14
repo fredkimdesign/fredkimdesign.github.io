@@ -19,10 +19,6 @@ export const walmart: CaseStudy = {
   collaborators: ["Design Systems", "Platform Engineering", "Tenant feature teams"],
   disciplines: ["Enterprise", "Design systems", "Multi-tenancy"],
   thumb: { src: "/work/walmart/tenants.webp", alt: "Walmart, Sam's Club, Member's Mark, and Bodega Aurrera logos" },
-  hero: {
-    src: "/work/walmart/item-carousel.webp",
-    alt: "Item Carousel component spec: copy limits, 4-up and 2-up layouts, light and dark mode",
-  },
 
   stakes: {
     heading: "One standard, many owners, no authority to compel it",

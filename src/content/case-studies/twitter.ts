@@ -12,9 +12,10 @@ export const twitter: CaseStudy = {
   collaborators: ["Engineering", "Product", "Research", "Design Systems"],
   disciplines: ["Enterprise", "Developer tools", "Design systems"],
   thumb: { src: "/work/twitter/thumb.webp", alt: "Twitter internal tools on a laptop" },
-  hero: {
+  closing: {
     src: "/work/twitter/hero.webp",
     alt: "go/Find, Twitter's internal search, on a laptop",
+    caption: "go/Find, shipped. The tool that had to feel like nothing.",
   },
 
   stakes: {

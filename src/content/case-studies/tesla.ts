@@ -11,9 +11,10 @@ export const tesla: CaseStudy = {
   collaborators: ["Product", "Engineering", "Design"],
   disciplines: ["Enterprise", "Design systems"],
   thumb: { src: "/work/tesla/thumb.webp", alt: "Tesla Account Master on a laptop" },
-  hero: {
+  closing: {
     src: "/work/tesla/hero.webp",
     alt: "Tesla Account Master on a laptop showing a customer's account, alerts, and products",
+    caption: "Account Master as advisors saw it — one customer, one frame.",
   },
 
   stakes: {

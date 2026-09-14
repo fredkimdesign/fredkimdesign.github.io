@@ -26,8 +26,9 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Fred Kim",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Fred Kim — product designer" }],
   },
-  twitter: { card: "summary", creator: "@fredkimdesign" },
+  twitter: { card: "summary_large_image", creator: "@fredkimdesign", images: ["/og.png"] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
