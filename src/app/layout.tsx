@@ -11,7 +11,7 @@ const newsreader = Newsreader({
 });
 
 const description =
-  "Product designer working on consumer and enterprise systems at Walmart, Sam's Club, Twitter, and Tesla.";
+  "Product designer building scalable platforms that help companies build and ship faster and better. Walmart, Sam's Club, Twitter, Tesla.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fredkimdesign.github.io"),
