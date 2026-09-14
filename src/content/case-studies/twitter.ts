@@ -224,20 +224,7 @@ export const twitter: CaseStudy = {
         },
       ],
     },
-    {
-      title: "GraphQL-Java benchmarks",
-      goal: "Show the open-source community how performance changes between commits.",
-      body: [
-        "A public dashboard for the GraphQL-Java repository — the only piece of this work anyone outside Twitter could see.",
-      ],
-      media: [
-        {
-          src: "/work/twitter/graphql-java.webp",
-          alt: "GraphQL Java compare-test-runs dashboard on a laptop",
-          width: "full",
-        },
-      ],
-    },
+
   ],
 
   friction: {

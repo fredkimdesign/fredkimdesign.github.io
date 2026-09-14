@@ -43,7 +43,7 @@ export const walmart: CaseStudy = {
   read: {
     heading: "The disagreement isn't about quality. It's about frame size.",
     body: [
-      "When a feature team pushes back, it's almost never because they want a worse experience. They're evaluating against the only scope they can see — their product, their release — and within that frame they're often right. The system's frame is every tenant and every market. The two sides aren't in conflict on the merits; they're answering different questions, and only one side knows it.",
+      "When a feature team pushes back, it's rarely because they want a worse experience. They're judging against the only scope they can see, and within it they're often right. The system's frame is every tenant and every market. The two sides aren't in conflict on the merits — they're answering different questions, and only one side knows it.",
       "So the work is relational. You can't resolve a frame-size mismatch by being right — that's what you already were. You resolve it by making the larger frame visible without spending the team's goodwill to do it.",
     ],
     evidence: [
@@ -58,7 +58,7 @@ export const walmart: CaseStudy = {
   bet: {
     heading: "Draw the line at behavior, not appearance",
     body: [
-      "Where the line sits between tenant control and system control is the whole design. Too tight and tenants fork; too loose and the system guarantees nothing. We put it at behavior. Theming, tokens, and use-case variants are the tenant's — a business should look like itself. Structure, interaction, and accessibility are not negotiable, because those have to survive a locale nobody in the room has thought about yet.",
+      "Where the line sits between tenant and system is the whole design. Too tight and tenants fork; too loose and the system guarantees nothing. We put it at behavior: theming, tokens, and variants are the tenant's, because a business should look like itself. Structure, interaction, and accessibility aren't negotiable, because they have to survive a locale nobody in the room has thought about yet.",
     ],
     rejected: [
       {
@@ -89,9 +89,8 @@ export const walmart: CaseStudy = {
       title: "Item Tile",
       goal: "The most-rendered component in retail, made to hold across every tenant and every market at once.",
       body: [
-        "A tile appears in search, browse, carousels, recommendations, cart, and ads. Every tenant has a stake in it and every merchandising, pricing, and ads team wants room on it — which makes it the hardest test of the line between appearance and behavior, because tenant requests for a tile are usually about content hierarchy, and hierarchy sits right on that line.",
-        "What a tenant can change: theme, tokens, and use-case variants. What holds everywhere: the structure, the interaction model, and the accessibility contract — a tile is a link wrapping other controls, and the keyboard and screen-reader path through it is not something a market gets to redecide. Copy limits, badge stacking, and worst-case string lengths are specified so the tile survives a locale nobody in the room has thought about yet.",
-        "In progress. The spec is written and the component is being built with tenants integrating; the results belong in this study when they exist, not before.",
+        "A tile appears in search, browse, carousels, recommendations, cart, and ads. Every tenant has a stake in it and every merchandising, pricing, and ads team wants room on it — the hardest test of the line, because tile requests are about content hierarchy, and hierarchy sits right on it.",
+        "Theme, tokens, and use-case variants are the tenant's. Structure, interaction, and the accessibility contract hold everywhere — a tile is a link wrapping other controls, and the keyboard path through it isn't something a market gets to redecide. In build now, with tenants integrating; results when they exist.",
       ],
       media: [
         {
@@ -106,14 +105,14 @@ export const walmart: CaseStudy = {
       title: "Versioning and adoption",
       goal: "Let many roadmaps move at their own speed without splintering the standard.",
       body: [
-        "Multiple system versions run concurrently, and adoption is pursued across all tenants rather than staged tenant by tenant — so every change has to be defensible to everyone at once. That constraint quietly raises the bar on every decision, and it is why the system ships with documentation even under deadline: an urgent release still carries a design spec, because a pattern nobody can explain is a pattern nobody will keep.",
+        "Multiple versions run concurrently, and adoption is pursued across all tenants at once — so every change has to be defensible to everyone. That is why the system ships with a spec even under deadline: a pattern nobody can explain is a pattern nobody keeps.",
       ],
     },
     {
       title: "The experimental layer",
       goal: "Give feature teams a sanctioned way to move fast without leaving the system.",
       body: [
-        "The system layer is robust and slow. A custom surface is fast and guarantees nothing. Between them there was nothing — so a team with an urgent need and a pattern that didn't clear our bar had two options, both bad. We're building the third: a layer where teams ship quickly under lighter requirements, with a path back into the system for patterns that prove themselves. It takes engineering collaboration on both sides, which is the honest reason it didn't exist sooner. In build now.",
+        "The system layer is robust and slow; a custom surface is fast and guarantees nothing. Between them there was nothing, so a team with an urgent need had two bad options. We're building the third: ship quickly under lighter requirements, with a path back into the system for patterns that prove themselves. In build now.",
       ],
     },
   ],

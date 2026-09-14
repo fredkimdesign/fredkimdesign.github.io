@@ -60,12 +60,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1">{children}</main>
         <footer className="mx-auto mt-40 w-full max-w-5xl px-8 text-sm text-faint">
           <div className="border-rule flex flex-wrap items-baseline justify-between gap-4 border-t py-12">
-            <a
-              href="mailto:fredkimdesign@gmail.com"
-              className="hover:text-ink transition-colors"
-            >
-              fredkimdesign@gmail.com
-            </a>
+            <div>
+              <a
+                href="mailto:fredkimdesign@gmail.com"
+                className="hover:text-ink transition-colors"
+              >
+                fredkimdesign@gmail.com
+              </a>
+              <p className="mt-2 text-xs">Built with Next.js and Claude Code.</p>
+            </div>
             <div className="flex gap-6">
               <a href="https://www.linkedin.com/in/fredjameskim/" className="hover:text-ink transition-colors">
                 LinkedIn

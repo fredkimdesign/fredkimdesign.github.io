@@ -10,7 +10,9 @@ import {
   type Metric,
   type Para,
 } from "@/lib/case-study";
+import Link from "next/link";
 import { asset } from "@/lib/asset";
+import { BeatRail } from "@/components/beat-rail";
 
 const DIMS = mediaDims as unknown as Record<string, [number, number]>;
 
@@ -153,7 +155,7 @@ function Beat({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-rule border-t pt-14 sm:pt-16">
+    <section id={`beat-${index}`} className="border-rule scroll-mt-24 border-t pt-14 sm:pt-16">
       <div className="mb-8 flex items-baseline gap-3">
         <span className="eyebrow tabular-nums">{String(index).padStart(2, "0")}</span>
         <span className="eyebrow">{marker}</span>
@@ -202,9 +204,19 @@ function MetricCard({ metric }: { metric: Metric }) {
 
 /* --------------------------------------------------------------------- study */
 
-export function CaseStudyArticle({ study }: { study: CaseStudy }) {
+const BEATS = [
+  [1, "Stakes"],
+  [2, "What I read"],
+  [3, "The bet"],
+  [4, "The work"],
+  [5, "Friction"],
+  [6, "Outcome"],
+] as const;
+
+export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: CaseStudy }) {
   return (
-    <article className="mx-auto w-full max-w-5xl px-8 pb-32">
+    <article className="relative mx-auto w-full max-w-5xl px-8 pb-8">
+      <BeatRail beats={BEATS.map(([i, m]) => ({ id: `beat-${i}`, index: i, marker: m }))} />
       {/* Header */}
       <header className="pt-12 pb-20 sm:pt-16 sm:pb-24">
         <div className="eyebrow mb-6">{study.company}</div>
@@ -213,19 +225,17 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
         </h1>
         <p className="measure prose-body mt-8 text-muted">{study.blurb}</p>
 
-        <dl className="border-rule mt-16 grid grid-cols-2 gap-x-10 gap-y-8 border-t pt-10 sm:grid-cols-4">
-          {[
-            ["Role", study.role],
-            ["Period", study.period],
-            ["With", study.collaborators.join(", ") || "—"],
-            ["Disciplines", study.disciplines.join(", ")],
-          ].map(([k, v]) => (
-            <div key={k}>
-              <dt className="eyebrow mb-3">{k}</dt>
-              <dd className="text-sm leading-relaxed text-ink">{v}</dd>
-            </div>
-          ))}
-        </dl>
+        <p className="border-rule mt-14 border-t pt-6 text-sm leading-relaxed text-muted">
+          <span className="text-ink">{study.role}</span>
+          <span className="mx-2.5 text-faint" aria-hidden="true">·</span>
+          <span className="tabular-nums whitespace-nowrap">{study.period}</span>
+          {study.collaborators.length > 0 && (
+            <>
+              <span className="mx-2.5 text-faint" aria-hidden="true">·</span>
+              With {study.collaborators.join(", ")}
+            </>
+          )}
+        </p>
       </header>
 
       {study.hero && (
@@ -301,19 +311,22 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
         <Beat index={5} marker="Friction" heading={study.friction.heading}>
           <Prose body={study.friction.body} />
           <div className="mt-14">
-            <div className="eyebrow mb-5">Traded</div>
-            <ul className="border-rule border-t">
+            <div className="border-rule hidden grid-cols-2 gap-10 border-b pb-3 sm:grid">
+              <div className="eyebrow">Gave up</div>
+              <div className="eyebrow">To get</div>
+            </div>
+            <ul>
               {study.friction.tradeoffs.map((t, i) => (
                 <li
                   key={i}
-                  className="border-rule grid gap-3 border-b py-7 sm:grid-cols-2 sm:gap-10"
+                  className="border-rule grid gap-3 border-b py-6 sm:grid-cols-2 sm:gap-10"
                 >
                   <div>
-                    <div className="eyebrow mb-2">Gave up</div>
+                    <div className="eyebrow mb-2 sm:hidden">Gave up</div>
                     <p className="text-sm leading-relaxed">{t.gaveUp}</p>
                   </div>
                   <div>
-                    <div className="eyebrow mb-2">To get</div>
+                    <div className="eyebrow mb-2 sm:hidden">To get</div>
                     <p className="text-sm leading-relaxed">{t.toGet}</p>
                   </div>
                 </li>
@@ -333,6 +346,24 @@ export function CaseStudyArticle({ study }: { study: CaseStudy }) {
           </div>
         </Beat>
       </div>
+
+      {next && (
+        <Link
+          href={`/work/${next.slug}`}
+          className="group border-rule mt-32 block border-t pt-10 sm:mt-40"
+        >
+          <div className="eyebrow mb-4">Next</div>
+          <div className="flex items-baseline justify-between gap-6">
+            <div>
+              <div className="text-sm text-muted">{next.company}</div>
+              <div className="font-display group-hover:text-accent mt-2 max-w-2xl text-2xl leading-snug tracking-tight text-balance transition-colors sm:text-3xl">
+                {next.title}
+              </div>
+            </div>
+            <span className="text-faint group-hover:text-ink shrink-0 text-2xl transition-colors" aria-hidden="true">→</span>
+          </div>
+        </Link>
+      )}
     </article>
   );
 }

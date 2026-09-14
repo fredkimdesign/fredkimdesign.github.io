@@ -15,7 +15,6 @@ export default function Home() {
         </h1>
         <p className="measure prose-body mt-10 text-muted">
           Currently at Walmart. Previously Sam&rsquo;s Club, Twitter, and Tesla.
-          This site is a Next.js app I built with Claude Code.
         </p>
       </section>
 
@@ -44,11 +43,6 @@ export default function Home() {
                 {s.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">{s.blurb}</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
-                {s.disciplines.map((d) => (
-                  <span key={d} className="eyebrow">{d}</span>
-                ))}
-              </div>
             </Link>
           );
         })}

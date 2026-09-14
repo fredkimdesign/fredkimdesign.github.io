@@ -8,7 +8,7 @@ export const samsClub: CaseStudy = {
   blurb:
     "Sam's Club could only reach members by email. I designed the in-app inbox, the member community, and the campaign workflow behind them as one loop.",
   period: "2023–2026",
-  role: "Senior UX Designer — primary designer, end to end",
+  role: "Senior UX Designer, end to end",
   collaborators: ["Product", "Engineering", "Marketing", "Content", "Legal"],
   disciplines: ["Consumer", "Enterprise", "Design systems"],
   thumb: { src: "/work/sams-club/thumb.webp", alt: "Sam's Club Message Center on a phone" },
@@ -40,14 +40,6 @@ export const samsClub: CaseStudy = {
     body: [
       "These arrived as three requests from three owners — an inbox, a community, a campaign tool. Built separately, each would have shipped and none would have mattered: an inbox with nothing good in it, a community that couldn't route what it learned, campaign tooling with no channel to deliver into.",
       "What they shared was a loop. Marketing decides what to say, Message Center delivers it, the community says whether it landed, and that changes what Marketing says next.",
-    ],
-    media: [
-      {
-        src: "/work/sams-club/three-loops.webp",
-        alt: "Three-panel illustration: a member shopping with her phone, a member at home on a laptop, a marketer at a desk",
-        caption: "The three people in the loop. Two of them are members; the system only knew how to talk to one.",
-        width: "full",
-      },
     ],
   },
 
@@ -174,7 +166,7 @@ export const samsClub: CaseStudy = {
   outcome: {
     heading: "How it added up",
     body: [
-      "Three workstreams, one loop. In parallel I owned UX for the associate-facing tools used by 1,000+ supply-chain employees — a different audience, the same instinct to design the system rather than the screen. In 2026 the work moved with me into Walmart's design organization, where these patterns became the starting point for a multi-tenant system.",
+      "Three workstreams, one loop. In 2026 the work moved with me into Walmart's design organization, where these patterns became the starting point for a multi-tenant system.",
     ],
     metrics: [
       {

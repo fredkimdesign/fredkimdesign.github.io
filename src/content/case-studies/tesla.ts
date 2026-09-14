@@ -7,7 +7,7 @@ export const tesla: CaseStudy = {
   blurb:
     "Tesla Advisors resolved issues by jumping across five to ten internal tools. I designed Account Master — one view of a customer's relationship with Tesla — and the frame other tools plugged into.",
   period: "2020–2021",
-  role: "Senior UX Designer, Tesla OS internal tools",
+  role: "Senior UX Designer",
   collaborators: ["Product", "Engineering", "Design"],
   disciplines: ["Enterprise", "Design systems"],
   thumb: { src: "/work/tesla/thumb.webp", alt: "Tesla Account Master on a laptop" },
