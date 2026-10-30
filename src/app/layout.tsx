@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Newsreader } from "next/font/google";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -61,9 +62,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             >
               fredkimdesign@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/fredjameskim/" className="hover:text-ink transition-colors">
-              LinkedIn
-            </a>
+            <div className="flex gap-6">
+              <a
+                href={asset("/Fred-Kim-Resume.pdf")}
+                target="_blank"
+                rel="noopener"
+                className="hover:text-ink transition-colors"
+              >
+                Résumé
+              </a>
+              <a href="https://www.linkedin.com/in/fredjameskim/" className="hover:text-ink transition-colors">
+                LinkedIn
+              </a>
+            </div>
           </div>
         </footer>
       </body>

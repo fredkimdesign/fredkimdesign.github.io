@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 export const metadata = { title: "About" };
 
 const roles = [
@@ -38,7 +40,12 @@ export default function About() {
         </div>
 
         <aside className="lg:col-span-5 lg:pt-3">
-          <div className="eyebrow mb-6">Experience</div>
+          <div className="mb-6 flex items-baseline justify-between">
+            <div className="eyebrow">Experience</div>
+            <a href={asset("/Fred-Kim-Resume.pdf")} target="_blank" rel="noopener" className="link text-sm">
+              Full résumé (PDF)
+            </a>
+          </div>
           <ol className="border-rule border-t">
             {roles.map(([when, org, title, note]) => (
               <li key={org} className="border-rule grid grid-cols-[5.5rem_1fr] gap-4 border-b py-5">
