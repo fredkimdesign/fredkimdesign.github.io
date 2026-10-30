@@ -71,7 +71,7 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
                 height={s.h}
                 unoptimized={s.src.endsWith(".gif")}
                 className="max-h-full w-auto max-w-full object-contain"
-                sizes="(max-width: 1216px) 100vw, 72rem"
+                sizes="(max-width: 1088px) 100vw, 64rem"
                 priority={k === 0}
               />
             </div>
@@ -80,12 +80,10 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
 
       </div>
 
-      <div className="mt-6 flex flex-col-reverse gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-        <figcaption className="measure min-h-[2.5rem] text-sm leading-relaxed text-muted">
-          {slides[i]?.caption ?? caption}
-        </figcaption>
+      {/* Controls sit right under the image so they never move as captions change length. */}
+      <div className="mt-6 flex flex-col items-center gap-4">
         {n > 1 && (
-          <div className="flex shrink-0 items-center justify-end gap-3 sm:justify-start">
+          <div className="flex items-center justify-center gap-3">
             <button type="button" onClick={() => go(-1)} aria-label="Previous" className={`${arrowBtn} -my-2`}>
               <Chevron dir="left" />
             </button>
@@ -109,9 +107,12 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
             </button>
           </div>
         )}
+        <figcaption className="measure min-h-[2.5rem] text-center text-sm leading-relaxed text-muted">
+          {slides[i]?.caption ?? caption}
+        </figcaption>
       </div>
       {caption && slides[i]?.caption && (
-        <p className="measure mt-2 text-sm leading-relaxed text-faint">{caption}</p>
+        <p className="measure mx-auto mt-2 text-center text-sm leading-relaxed text-faint">{caption}</p>
       )}
     </figure>
   );

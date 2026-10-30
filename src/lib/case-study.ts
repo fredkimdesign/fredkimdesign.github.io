@@ -17,7 +17,7 @@ export type Media = {
   alt: string;
   /** Defaults to image. Video renders muted, looping, inline. */
   kind?: "image" | "video";
-  /** For video: show controls and play with sound on click, instead of a silent loop. Use for interviews. */
+  /** For video: autoplays muted either way; this adds controls so the reader can unmute, and plays once instead of looping. Use for interviews. */
   controls?: boolean;
   /** Shown beneath the image. Say what the reader should notice, not what it is. */
   caption?: string;
@@ -45,16 +45,17 @@ export type Metric = {
 };
 
 /**
- * Several related images shown together instead of stacked. `row` is a
- * side-by-side grid (2–3 across); `carousel` is a slideshow — one image at a
- * time, arrows and dots — for iterations, screens, or anything with more than
- * two items. Videos never go in a carousel; they are spotlighted on their own.
+ * Several related images under one caption. `stack` reads top to bottom like
+ * the rest of the article — never side by side; `carousel` is a slideshow —
+ * one image at a time, arrows and dots — for iterations, screens, or anything
+ * with more than two items. Videos never go in a carousel; they are
+ * spotlighted on their own.
  */
 export type MediaGroup = {
-  layout: "row" | "carousel";
+  layout: "stack" | "carousel";
   items: Media[];
   caption?: string;
-  /** Give the group its own room. Rows of videos are spotlighted automatically. */
+  /** Give the group its own room. Stacks of videos are spotlighted automatically. */
   spotlight?: boolean;
 };
 

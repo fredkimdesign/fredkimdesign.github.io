@@ -44,9 +44,9 @@ function Visual({ media, fixedHeight }: { media: Media; fixedHeight?: boolean })
         src={asset(media.src)}
         width={w}
         height={h}
-        muted={!media.controls}
+        muted
         loop={!media.controls}
-        autoPlay={!media.controls}
+        autoPlay
         controls={media.controls}
         aria-label={media.alt}
         playsInline
@@ -71,38 +71,36 @@ function Visual({ media, fixedHeight }: { media: Media; fixedHeight?: boolean })
 function Caption({ text, className = "" }: { text?: string; className?: string }) {
   if (!text) return null;
   return (
-    <figcaption className={`measure mt-4 text-sm leading-relaxed text-muted ${className}`}>
+    <figcaption className={`measure mx-auto mt-4 text-center text-sm leading-relaxed text-muted ${className}`}>
       {text}
     </figcaption>
   );
 }
 
 /** A single figure. Videos are always spotlighted: full width, extra room. */
-export function Figure({ media }: { media: Media }) {
+export function Figure({ media, hero }: { media: Media; hero?: boolean }) {
   const spotlight = media.kind === "video";
   const full = spotlight || media.width === "full";
+  const width = hero ? "w-full" : full ? "figure-wide" : "measure";
   return (
-    <figure className={`${full ? "figure-wide" : "measure"} ${spotlight ? "my-6" : ""}`}>
+    <figure className={`${width} ${spotlight ? "my-6" : ""}`}>
       <Visual media={media} />
       <Caption text={media.caption} />
     </figure>
   );
 }
 
-function Row({ group }: { group: MediaGroup }) {
-  const cols = Math.min(group.items.length, 3);
+/** Related figures, one under the next. The article never splits into columns. */
+function Stack({ group }: { group: MediaGroup }) {
   const spotlight = group.spotlight || group.items.every((m) => m.kind === "video");
   return (
     <figure className={`figure-wide ${spotlight ? "my-6" : ""}`}>
-      <div
-        className="grid grid-cols-1 items-center gap-10 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
-        style={{ "--cols": cols } as React.CSSProperties}
-      >
+      <div className="space-y-16">
         {group.items.map((m, i) => (
           <div key={i}>
-            <Visual media={m} />
+            <Visual media={{ ...m, width: "full" }} />
             {m.caption && (
-              <p className="mt-4 text-sm leading-relaxed text-muted">{m.caption}</p>
+              <p className="measure mx-auto mt-4 text-center text-sm leading-relaxed text-muted">{m.caption}</p>
             )}
           </div>
         ))}
@@ -128,7 +126,7 @@ function Figures({ media }: { media?: MediaItem[] }) {
     <div className="mt-14 space-y-16">
       {media.map((m, i) =>
         "layout" in m ? (
-          m.layout === "carousel" ? <Carousel key={i} group={m} /> : <Row key={i} group={m} />
+          m.layout === "carousel" ? <Carousel key={i} group={m} /> : <Stack key={i} group={m} />
         ) : (
           <Figure key={i} media={m} />
         ),
@@ -217,7 +215,7 @@ const BEATS = [
 
 export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: CaseStudy }) {
   return (
-    <article className="relative mx-auto w-full max-w-[76rem] px-8 pb-8">
+    <article className="relative mx-auto w-full max-w-[68rem] px-8 pb-8">
       <BeatRail beats={BEATS.map(([i, m, id]) => ({ id, index: i, marker: m }))} />
       {/* Header */}
       <header id="overview" className="scroll-mt-24 pt-12 pb-20 sm:pt-16 sm:pb-24">
@@ -242,7 +240,7 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
 
       {study.hero && (
         <div className="mb-28 sm:mb-36">
-          <Figure media={{ ...study.hero, width: "full" }} />
+          <Figure media={{ ...study.hero, width: "full" }} hero />
         </div>
       )}
 
@@ -341,7 +339,7 @@ export function CaseStudyArticle({ study, next }: { study: CaseStudy; next?: Cas
         {/* 06 — Outcome */}
         <Beat index={6} marker="Outcome" heading={study.outcome.heading}>
           <Prose body={study.outcome.body} />
-          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2">
             {study.outcome.metrics.map((m, i) => (
               <MetricCard key={i} metric={m} />
             ))}

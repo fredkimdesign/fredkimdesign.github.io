@@ -64,7 +64,7 @@ export const tesla: CaseStudy = {
     ],
     media: [
       {
-        layout: "row",
+        layout: "stack",
         items: [
           {
             src: "/work/tesla/module-slots.webp",

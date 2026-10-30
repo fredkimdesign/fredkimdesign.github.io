@@ -69,7 +69,7 @@ export const samsClub: CaseStudy = {
       ],
       media: [
         {
-          layout: "row",
+          layout: "stack",
           items: [
             {
               src: "/work/sams-club/message-center.webp",
@@ -92,7 +92,7 @@ export const samsClub: CaseStudy = {
       ],
       media: [
         {
-          layout: "row",
+          layout: "stack",
           items: [
             {
               src: "/work/sams-club/community.webp",

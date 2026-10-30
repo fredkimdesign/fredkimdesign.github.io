@@ -26,7 +26,7 @@ export const twitter: CaseStudy = {
       "The users were senior engineers with their own workarounds. Anything that felt designed *at* them would be ignored.",
     media: [
       {
-        layout: "row",
+        layout: "stack",
         items: [
           {
             src: "/work/twitter/search-old.webp",
@@ -57,7 +57,7 @@ export const twitter: CaseStudy = {
     ],
     media: [
       {
-        layout: "row",
+        layout: "stack",
         spotlight: true,
         items: [
           {
@@ -76,7 +76,7 @@ export const twitter: CaseStudy = {
         caption: "Two of the interviews. The tool is not the subject; the workaround is.",
       },
       {
-        layout: "row",
+        layout: "stack",
         items: [
           {
             src: "/work/twitter/user-stories.webp",
@@ -110,7 +110,7 @@ export const twitter: CaseStudy = {
     ],
     media: [
       {
-        layout: "row",
+        layout: "stack",
         items: [
           {
             src: "/work/twitter/requirements.webp",
@@ -136,7 +136,7 @@ export const twitter: CaseStudy = {
       ],
       media: [
         {
-          layout: "row",
+          layout: "stack",
           items: [
             {
               src: "/work/twitter/search-results.webp",

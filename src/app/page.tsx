@@ -7,7 +7,7 @@ const DIMS = mediaDims as unknown as Record<string, [number, number]>;
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-[76rem] px-8">
+    <div className="mx-auto w-full max-w-[68rem] px-8">
       <section className="py-24 sm:py-36">
         <div className="eyebrow mb-6">Product designer</div>
         <h1 className="font-display max-w-3xl text-4xl leading-[1.06] tracking-tight text-balance sm:text-6xl">
@@ -43,7 +43,6 @@ export default function Home() {
               <h2 className="font-display group-hover:text-accent mt-3 text-2xl leading-snug tracking-tight text-balance transition-colors">
                 {s.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{s.blurb}</p>
             </Link>
           );
         })}
