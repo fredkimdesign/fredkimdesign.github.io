@@ -3,9 +3,9 @@ import type { CaseStudy } from "@/lib/case-study";
 export const tesla: CaseStudy = {
   slug: "tesla",
   company: "Tesla",
-  title: "The customer had one Tesla. The advisor serving them had ten tools.",
+  title: "Giving Tesla advisors one view of the customer",
   blurb:
-    "Tesla Advisors resolved issues by jumping across five to ten internal tools. I designed Account Master — one view of a customer's relationship with Tesla — and the frame other tools plugged into.",
+    "Tesla advisors used five to ten internal tools to resolve one customer issue. I designed Account Master, a single view of a customer's account, products, and history, and the layout later internal tools were built on.",
   period: "2020–2021",
   role: "Senior UX Designer",
   collaborators: ["Product", "Engineering", "Design"],
@@ -17,49 +17,49 @@ export const tesla: CaseStudy = {
   },
 
   stakes: {
-    heading: "An asymmetry nobody was measuring",
+    heading: "Advisors were working across too many tools",
     body: [
-      "The customer had one account, one app, one relationship. The advisor behind it had five to ten tools, each holding one slice of the customer and none holding all of it. Every minute of that scavenger hunt was a minute the customer was on hold.",
+      "Customers deal with Tesla through one account and one app. Advisors had to piece each customer together from five to ten tools, each holding part of the picture. The customer waited on hold while they searched.",
     ],
     constraint:
-      "Internal tooling was mid-transition to a modular, plug-and-play model. Anything I built had to fit the architecture that was arriving.",
+      "Tesla's internal tools were moving to a modular, plug-and-play architecture. The design had to fit it.",
     media: [
       {
         src: "/work/tesla/asymmetry.webp",
         alt: "The Tesla customer app beside a cascade of five advisor tools: Sales, Fleet, Admin, Energy, Scheduling",
-        caption: "One screen versus five. The customer never saw this gap; the advisor lived in it.",
+        caption: "The customer app next to five of the tools an advisor might need for the same customer.",
         width: "full",
       },
     ],
   },
 
   read: {
-    heading: "This wasn't a tool. It was a frame the other tools had to fit into.",
+    heading: "Every team owned a tool, but no one owned the customer view",
     body: [
-      "The brief said build a better lookup tool. The real problem was that every team owned a tool and nobody owned the customer. Another tool — even a good one — would have been the eleventh tab. What the advisor needed was a container: one place where the customer's identity was fixed and everything else attached to it.",
+      "The brief was a better lookup tool. But each team owned its own tool, and no one owned the full customer record. A new tool would have been one more tab. Advisors needed one place where the customer stayed fixed and other tools attached to it.",
     ],
     media: [
       {
         src: "/work/tesla/frame.webp",
         alt: "Hub diagram: Customer Overview at center, with Products, Notifications, Account, and History around it, and ten tool families on the outer ring",
-        caption: "The frame. Four things fixed at the center; ten tool families that plug into the ring.",
+        caption: "The model we landed on: four things always visible in the center, and ten groups of tools that plug in around them.",
       },
     ],
   },
 
   bet: {
-    heading: "A shell that hosts existing tools, not a rebuild of them",
+    heading: "Host the existing tools instead of rebuilding them",
     body: [
-      "Rebuilding the advisor workflows into one product would have been the better experience for a year and a maintenance disaster forever — every tool team would have had to hand over their surface. Instead: a shell. Account Master fixed identity and navigation and hosted existing tools as modules. Teams kept ownership. Advisors got one view.",
+      "Instead of rebuilding every workflow, we built a shell. Account Master handled customer identity and navigation, and existing tools ran inside it as modules. Teams kept ownership of their tools; advisors got one view.",
     ],
     rejected: [
       {
-        option: "Rebuild the core advisor workflows in one product",
-        why: "Cleaner, and organizationally impossible — it required every tool-owning team to give up their surface.",
+        option: "Rebuild the main advisor workflows as one product",
+        why: "Cleaner, but every team would have had to hand over its tool, and someone would have had to maintain all of it.",
       },
       {
-        option: "Design a custom component set for the new surface",
-        why: "Engineering's answer was blunt, and they were right. Custom components would have made Account Master a special case in the ecosystem it was meant to standardize.",
+        option: "Design new components for Account Master",
+        why: "Engineering pushed back, correctly. Custom components would have made Account Master an exception in the system it was meant to standardize.",
       },
     ],
     media: [
@@ -69,12 +69,12 @@ export const tesla: CaseStudy = {
           {
             src: "/work/tesla/module-slots.webp",
             alt: "Energy and Sales tool windows with a highlighted slot where the Stream module attaches",
-            caption: "The slot. A module has to fit here, in every host, at every size.",
+            caption: "Where a module attaches. It has to fit in every host tool, at every size.",
           },
           {
             src: "/work/tesla/modules.webp",
             alt: "The Stream communication module rendered inside Energy, Sales, and a mobile host",
-            caption: "The same module, three hosts. What 'plug-and-play' had to mean in practice.",
+            caption: "The Stream messaging module running inside three different host tools.",
           },
         ],
       },
@@ -86,7 +86,7 @@ export const tesla: CaseStudy = {
       title: "Account Master",
       goal: "One view of a customer's relationship with Tesla.",
       body: [
-        "Account, alerts, products, payments, activity — one frame instead of ten, built entirely from existing components.",
+        "Account, alerts, products, payments, and activity in one view, built entirely from existing components.",
       ],
       media: [
         {
@@ -95,17 +95,17 @@ export const tesla: CaseStudy = {
             {
               src: "/work/tesla/layouts.webp",
               alt: "Five low-fidelity layout options for Account Master",
-              caption: "Five layouts. Which information is fixed, and which is a module?",
+              caption: "Five early layouts, working out which information should always be visible and which should be a module.",
             },
             {
               src: "/work/tesla/v1.webp",
               alt: "Early Account Master: dense three-column layout with account, alerts, products, payments, and activity",
-              caption: "Early. Everything visible, nothing prioritized.",
+              caption: "An early version. Everything was on screen, with nothing prioritized.",
             },
             {
               src: "/work/tesla/final.webp",
               alt: "Final Account Master: account card on the left, product cards on the right",
-              caption: "Final. The account card is fixed; products are the first module.",
+              caption: "The final layout. The account card stays on the left, and products are the first module.",
             },
           ],
         },
@@ -113,21 +113,21 @@ export const tesla: CaseStudy = {
           src: "/work/tesla/prototype.mp4",
           kind: "video",
           alt: "Prototype walkthrough of Account Master",
-          caption: "The prototype: search a customer, land on one view, drill into a product.",
+          caption: "Prototype: search for a customer, open their account, and drill into a product.",
         },
       ],
     },
     {
       title: "The modular framework",
-      goal: "Make Account Master the standard, not the exception.",
+      goal: "Make Account Master the model for other tools.",
       body: [
-        "Account Master became the reference implementation for Tesla's plug-and-play tooling — the structure later tools were built against. It simplified the experience for thousands of advisors by setting the standard, not by being the only tool that followed it.",
+        "Account Master became the reference for Tesla's plug-and-play tooling. Later tools used the same structure, so advisors met the same layout everywhere.",
       ],
       media: [
         {
           src: "/work/tesla/devices.webp",
           alt: "Account Master on phone, laptop, and tablet",
-          caption: "Same frame, three form factors.",
+          caption: "The same layout on phone, laptop, and tablet.",
           width: "full",
         },
       ],
@@ -135,26 +135,26 @@ export const tesla: CaseStudy = {
   ],
 
   friction: {
-    heading: "\"Too much engineering overhead. Use existing components.\"",
+    heading: "Engineering pushed back on custom components",
     body: [
-      "A direct quote from Engineering, and the most useful thing anyone said. My first designs assumed a new surface earned new components. Engineering's position: a tool meant to standardize the ecosystem should be built from the ecosystem's parts. I lost that argument, and it was the right outcome — the versions on existing components were less distinctive and more adoptable, and adoption was the metric.",
+      "My first designs used new components. Engineering's response: \"Too much engineering overhead. Use existing components.\" They were right. A tool meant to standardize the others should use the same parts. The result looked less distinctive and was easier to adopt, which was the goal.",
     ],
     tradeoffs: [
       {
-        gaveUp: "A custom component set and a more distinctive surface",
-        toGet: "A tool built from the same parts as the ecosystem — and engineering's willingness to build it",
+        gaveUp: "Custom components and a more distinctive look",
+        toGet: "A tool built from the same parts as everything else, which engineering was willing to build",
       },
       {
-        gaveUp: "Rebuilding the advisor workflows into one product",
-        toGet: "Every tool team keeping their surface, which is why they adopted the frame",
+        gaveUp: "One rebuilt product for all advisor workflows",
+        toGet: "Tool teams kept ownership, which is why they agreed to plug in",
       },
     ],
   },
 
   outcome: {
-    heading: "Doubled, then copied",
+    heading: "Active users doubled",
     body: [
-      "Account Master launched inside Stream and doubled its active users. More durably, it set the structure later tools were built against. It was one of three Tesla OS tools I shipped in the year — alongside Stream's multi-platform messaging and an email campaign manager for global commercial communications — and the one that changed how the other two were built.",
+      "Account Master launched inside Stream, and Stream's active users doubled. Later internal tools were built on its structure. I shipped two other tools that year: Stream's multi-platform messaging and an email campaign manager for global commercial communications.",
     ],
     metrics: [
       {

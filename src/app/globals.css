@@ -34,6 +34,10 @@ h1, h2, h3 {
   hanging-punctuation: first;
 }
 
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
@@ -58,6 +62,53 @@ body {
   font-family: var(--font-sans);
   /* Full-bleed carousels use negative margins; never let that become a horizontal scroll. */
   overflow-x: clip;
+}
+
+/* An opaque rectangle — screenshot, photo, mock-up on its own backdrop — gets
+   the same soft corner as video, and a hairline so a white screenshot still
+   has an edge on the paper. Cut-outs with transparent backgrounds get neither. */
+@utility plate {
+  border-radius: 0.75rem;
+  outline: 1px solid rgb(22 21 15 / 0.07);
+  outline-offset: -1px;
+}
+
+/* An image that doesn't exist yet: a dashed frame with a drafting cross. */
+.placeholder {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #c4beb1;
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--color-rule) calc(50% - 0.5px), var(--color-rule) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--color-rule) calc(50% - 0.5px), var(--color-rule) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+
+/* The second fill in a chart: outlined and hatched, so pass and fail (or added
+   and removed) never differ by colour alone. */
+@utility hatch {
+  background:
+    repeating-linear-gradient(135deg, var(--color-ink) 0 1px, transparent 1px 5px),
+    var(--color-paper);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+
+/* The enlarged figure sits on the paper, not on black. */
+.lightbox::backdrop {
+  background: rgb(251 250 248 / 0.97);
+}
+.lightbox[open] {
+  opacity: 1;
+  transition: opacity 0.18s ease-out;
+  @starting-style {
+    opacity: 0;
+  }
+}
+html:has(dialog[open]) {
+  overflow: hidden;
 }
 
 /* The reading column. Case-study prose never exceeds this. */

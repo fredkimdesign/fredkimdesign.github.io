@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Newsreader } from "next/font/google";
 import { asset } from "@/lib/asset";
+import { SiteNav } from "@/components/site-nav";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -44,14 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Link href="/" className="font-display text-lg tracking-tight">
             Fred Kim
           </Link>
-          <nav className="flex gap-7 text-sm text-muted">
-            <Link href="/" className="hover:text-ink transition-colors">
-              Work
-            </Link>
-            <Link href="/about" className="hover:text-ink transition-colors">
-              About
-            </Link>
-          </nav>
+          <SiteNav />
         </header>
         <main id="main" className="flex-1">{children}</main>
         <footer className="mx-auto mt-40 w-full max-w-[68rem] px-8 text-sm text-faint">

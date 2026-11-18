@@ -4,9 +4,9 @@ export const twitter: CaseStudy = {
   slug: "twitter",
   company: "Twitter",
   title:
-    "Internal tools for engineers who would rather you didn't design them anything",
+    "Internal tools for Twitter's infrastructure engineers",
   blurb:
-    "On Redbird, Twitter's core infrastructure org, I designed the tools engineers used to search, provision, and build the platform. The users were experts with opinions; the job was velocity.",
+    "On Redbird, Twitter's core infrastructure org, I designed tools engineers used to search internal docs, provision capacity, and design APIs. The goal was to help them ship faster.",
   period: "2022–2023",
   role: "Senior Product Designer, Redbird",
   collaborators: ["Engineering", "Product", "Research", "Design Systems"],
@@ -18,12 +18,12 @@ export const twitter: CaseStudy = {
   },
 
   stakes: {
-    heading: "Thousands of engineers, and the platform was slowing them down",
+    heading: "Everyday tools were slowing engineers down",
     body: [
-      "Docs, pages, and libraries lived in silos with no single search. Capacity recommendations arrived as bare numbers, so engineers didn't trust them and over-provisioned. There was no interface for GraphQL schemas at all. Each cost minutes per engineer per day, across 2,000+ engineers — and none of it had ever been designed, only built.",
+      "Docs, pages, and libraries had no single search. Capacity recommendations were one unexplained number, so engineers over-provisioned. GraphQL schemas had no interface at all. Each cost minutes a day across 2,000+ engineers, and none had been designed.",
     ],
     constraint:
-      "The users were senior engineers with their own workarounds. Anything that felt designed *at* them would be ignored.",
+      "The users were senior engineers with their own workarounds. A tool that felt designed *at* them would be ignored.",
     media: [
       {
         layout: "stack",
@@ -31,12 +31,12 @@ export const twitter: CaseStudy = {
           {
             src: "/work/twitter/search-old.webp",
             alt: "The legacy go/Find search interface",
-            caption: "go/Find before. It worked, in the sense that it returned results.",
+            caption: "go/Find before the redesign.",
           },
           {
             src: "/work/twitter/grafana-old.webp",
             alt: "A Grafana capacity dashboard being shared over a video call",
-            caption: "RedCurve before: one large number, no visible reasoning. Engineers ignored it.",
+            caption: "RedCurve before: one large number with nothing showing how it was calculated. Engineers mostly ignored it.",
           },
         ],
       },
@@ -44,15 +44,15 @@ export const twitter: CaseStudy = {
   },
 
   read: {
-    heading: "Expert users don't want an experience. They want to stop noticing the tool.",
+    heading: "Engineers wanted speed and evidence",
     body: [
-      "Consumer instincts fail here. The measure isn't engagement — it's how fast the tool disappears. That reframed everything: search was a latency and relevance problem, not a search experience. The capacity dashboard was a trust problem — engineers accept a recommendation when they can see the test results under it.",
+      "Success here is how quickly engineers get what they need and leave. Search came down to speed and relevance. The capacity dashboard came down to trust: engineers accept a recommendation when they can see the test results behind it.",
     ],
     evidence: [
       {
         kind: "interview",
-        what: "Engineer interviews before any design, synthesized by user story.",
-        found: "The same three complaints came up unprompted in nearly every conversation: nothing could be found, capacity numbers couldn't be trusted, and there was nowhere to look at a schema. The scope came from the users, not the roadmap.",
+        what: "Interviews with engineers before any design work, grouped by user story.",
+        found: "Three complaints came up unprompted in nearly every interview: they couldn't find things, didn't trust capacity numbers, and had nowhere to view a schema. Those became the scope.",
       },
     ],
     media: [
@@ -73,7 +73,7 @@ export const twitter: CaseStudy = {
             alt: "Recorded user interview with a second engineer",
           },
         ],
-        caption: "Two of the interviews. The tool is not the subject; the workaround is.",
+        caption: "Two of the interviews. We spent more time on engineers' workarounds than on the tools themselves.",
       },
       {
         layout: "stack",
@@ -81,12 +81,12 @@ export const twitter: CaseStudy = {
           {
             src: "/work/twitter/user-stories.webp",
             alt: "Interview synthesis board grouped by user story: core API engineers, backend engineers, client engineers",
-            caption: "Synthesis by story. The third column — client engineers unblocking themselves — became API Designer's reason to exist.",
+            caption: "Findings grouped by story. The third column, client engineers trying to unblock themselves, is where API Designer came from.",
           },
           {
             src: "/work/twitter/paper-notes.webp",
             alt: "Notebook sketches of the capacity dashboard and the throughput formula",
-            caption: "The weighted-RPS formula by hand, before drawing anything. You can't design a number you don't understand.",
+            caption: "Working through the weighted-RPS formula by hand before designing anything, so I understood the number I'd be showing.",
           },
         ],
       },
@@ -94,18 +94,18 @@ export const twitter: CaseStudy = {
   },
 
   bet: {
-    heading: "Rebuild the stack, not the skin",
+    heading: "Rebuild search instead of restyling it",
     body: [
-      "Search was the highest-traffic surface and where I made the least visible call: take on the frontend stack rather than restyle on top of it. The old stack made accessibility fixes structurally impossible. A restyle would have shipped in weeks and changed nothing.",
+      "Search had the most traffic. I pushed to rebuild its frontend rather than restyle it, because the old stack blocked accessibility fixes. A restyle would have shipped in weeks and fixed nothing underneath.",
     ],
     rejected: [
       {
         option: "Restyle the existing search UI",
-        why: "Fast and visible, and it would have locked in every structural accessibility problem while looking like progress.",
+        why: "Fast and visible, but it would have locked in the accessibility problems.",
       },
       {
-        option: "Make the capacity dashboard a visualization showcase",
-        why: "The problem was trust, not beauty. Showing the test results was a plainer, denser, less impressive answer — and the right one.",
+        option: "Turn the capacity dashboard into a showcase visualization",
+        why: "The problem was trust. Engineers needed the test results, shown plainly.",
       },
     ],
     media: [
@@ -115,12 +115,12 @@ export const twitter: CaseStudy = {
           {
             src: "/work/twitter/requirements.webp",
             alt: "Technical design doc for the new go/Find with product UI requirements and engineer comments",
-            caption: "The bet written down. Accessible UI is a P0; engineers are commenting in the margins.",
+            caption: "The plan, written down. Accessible UI is marked P0, with engineers commenting in the margins.",
           },
           {
             src: "/work/twitter/explorations.webp",
             alt: "Three concept directions for go/Find: MVP, MVP+, and Modern",
-            caption: "Three directions. V2 won: a search box should look like it wants to be typed in.",
+            caption: "Three directions. We went with V2, which made the search box the obvious place to start.",
           },
         ],
       },
@@ -130,9 +130,9 @@ export const twitter: CaseStudy = {
   work: [
     {
       title: "go/Find",
-      goal: "One place to search every doc, page, and library — fast enough to feel like nothing.",
+      goal: "One fast place to search every doc, page, and library.",
       body: [
-        "New interface, new frontend stack, better relevance. Accessibility score from 72 to 97 — the number I'm proudest of on this page because no engineer would ever have asked for it.",
+        "New interface, new frontend stack, better relevance. Accessibility score went from 72 to 97, the result I'm proudest of because no engineer asked for it.",
       ],
       media: [
         {
@@ -147,15 +147,15 @@ export const twitter: CaseStudy = {
               alt: "Four go/Find screens: results, no results, refine your search, and a 404",
             },
           ],
-          caption: "Results, empty states, and operator help. The refine page teaches AND, NOT, fuzzy, and exact — the four things power users asked for.",
+          caption: "Results, empty states, and search help. The refine page explains AND, NOT, fuzzy, and exact search, the four operators power users asked for.",
         },
       ],
     },
     {
       title: "RedCurve",
-      goal: "Make a capacity recommendation something an engineer would accept.",
+      goal: "Make capacity recommendations something engineers would trust.",
       body: [
-        "Redesigned the Grafana dashboard around the evidence — test runs, CPU, max RPS — and built a wizard for YAML configuration so provisioning didn't require already knowing the format.",
+        "I redesigned the Grafana dashboard to show the evidence behind each recommendation (test runs, CPU, max RPS) and built a wizard so engineers could provision without knowing the YAML format.",
       ],
       media: [
         {
@@ -164,12 +164,12 @@ export const twitter: CaseStudy = {
             {
               src: "/work/twitter/journey.webp",
               alt: "Service-owner journey from capacity test through inspection to requesting capacity, with open questions annotated",
-              caption: "The journey with its questions left on. 'Trust result?' is the diamond the redesign is about.",
+              caption: "The user journey with open questions still noted. \"Trust result?\" is the step the redesign focused on.",
             },
             {
               src: "/work/twitter/redcurve.webp",
               alt: "RedCurve dashboard on a monitor: service summary, recommendation, and taskrun performance charts",
-              caption: "The recommendation now sits beside the data that produced it.",
+              caption: "The recommendation now sits next to the data behind it.",
             },
           ],
         },
@@ -177,7 +177,7 @@ export const twitter: CaseStudy = {
           src: "/work/twitter/redcurve-proto.mp4",
           kind: "video",
           alt: "Prototype walkthrough of the RedCurve dashboard",
-          caption: "The prototype: from service summary to a capacity request without leaving the page.",
+          caption: "Prototype: going from a service summary to a capacity request on one page.",
         },
       ],
     },
@@ -185,7 +185,7 @@ export const twitter: CaseStudy = {
       title: "API Designer",
       goal: "Let engineers explore, test, and share GraphQL schemas in the browser.",
       body: [
-        "Explore thousands of types and fields, run test queries, share a schema before anyone implements it. Previously, APIs were designed with no interface at all.",
+        "Browse thousands of types and fields, run test queries, and share a schema before it's built. Previously there was no interface for this.",
       ],
       media: [
         {
@@ -197,9 +197,9 @@ export const twitter: CaseStudy = {
     },
     {
       title: "Data visualization guidelines",
-      goal: "Stop every dashboard from inventing its own chart conventions.",
+      goal: "Give every internal dashboard the same chart conventions.",
       body: [
-        "Audited internal dashboards and the field, then wrote a twelve-page guideline — types, variants, accessibility, interaction — and the Feather chart components that implement it.",
+        "I audited internal dashboards and other companies' guidelines, then wrote a twelve-page guide (chart types, variants, accessibility, interaction) and the Feather chart components that implement it.",
       ],
       media: [
         {
@@ -208,7 +208,7 @@ export const twitter: CaseStudy = {
             {
               src: "/work/twitter/audit.webp",
               alt: "Audit grid of Kibana, Datadog, Prometheus, Splunk, Tableau, and Grafana dashboards",
-              caption: "What everyone else does, before deciding what we do.",
+              caption: "Reviewing how other teams and companies handle charts before setting our own rules.",
             },
             {
               src: "/work/twitter/dataviz-book.webp",
@@ -218,7 +218,7 @@ export const twitter: CaseStudy = {
             {
               src: "/work/twitter/grid-charts.webp",
               alt: "Feather grid chart components: bar, diverging, line, grouped, sequential, area, stacked",
-              caption: "The components. Each one maps to a rule in the book.",
+              caption: "The components. Each one maps to a rule in the guide.",
             },
           ],
         },
@@ -228,23 +228,23 @@ export const twitter: CaseStudy = {
   ],
 
   friction: {
-    heading: "Winning arguments with people who write the code you're designing for",
+    heading: "Designing for people who could build it themselves",
     body: [
-      "Every user was also a stakeholder with commit access. An engineer who disagreed could build the alternative before the review ended. You can't win on authority, and only partly on research — the person across the table has more domain expertise than any interview subject.",
-      "The YAML wizard was the sharpest case. Engineers who already wrote the format by hand read a form on top of it as a step backward, and they were exactly the people whose approval the tool needed. It shipped as an on-ramp rather than a replacement — the raw config stayed one click away. That satisfied nobody completely, which is usually what adoption looks like.",
+      "Every user was a stakeholder who could write code. An engineer who disagreed could build an alternative before the review ended, and often knew the domain better than anyone I'd interviewed.",
+      "The YAML wizard was the clearest case. Engineers who wrote config by hand saw a form as a step backward. We shipped it as an optional starting point, with raw config one click away. Not everyone loved it, but people used it.",
     ],
     tradeoffs: [
       {
-        gaveUp: "Visible progress in the first months of search",
-        toGet: "A stack that could actually support accessibility and richer results",
+        gaveUp: "Visible progress on search in the first few months",
+        toGet: "A frontend that could support accessibility and better results",
       },
     ],
   },
 
   outcome: {
-    heading: "What it added up to",
+    heading: "Results",
     body: [
-      "Five tools, one metric: how much faster engineers could build Twitter. None of them had a launch. They just stopped being in the way.",
+      "Five tools with one goal: help engineers build Twitter faster. None had a big launch. They saved engineers time every day.",
     ],
     metrics: [
       {

@@ -32,6 +32,8 @@ export type Media = {
  */
 export type MetricBasis =
   | "realized" // measured after ship
+  | "shipped" // it landed; a fact, not a measurement
+  | "estimated" // the author's estimate, not a measured figure
   | "projected" // modeled, not yet observed
   | "pilot" // measured, but on a limited population
   | "target"; // committed goal, outcome not yet known
@@ -59,7 +61,66 @@ export type MediaGroup = {
   spotlight?: boolean;
 };
 
-export type MediaItem = Media | MediaGroup;
+/**
+ * A stand-in for an image that doesn't exist yet. It states what belongs
+ * there and the ratio to export at, and is drawn so it can never be mistaken
+ * for product UI.
+ */
+export type Placeholder = {
+  kind: "placeholder";
+  /** What belongs here. Written for the author, read by everyone. */
+  label: string;
+  /** CSS aspect ratio. Defaults to 16 / 9. */
+  aspect?: string;
+  caption?: string;
+  width?: "inset" | "full";
+};
+
+/**
+ * Data the page draws itself, rather than a picture of data. The numbers live
+ * in the study file next to the prose that cites them.
+ */
+export type BarsExhibit = {
+  kind: "bars";
+  title: string;
+  /** What is being measured against what. */
+  note?: string;
+  /** Appended to every value: ":1" for a contrast ratio. */
+  unit: string;
+  /** The scale. `min` is where bars start — 1 for contrast, which has no zero. */
+  min: number;
+  max: number;
+  threshold: { value: number; label: string };
+  rows: { label: string; value: number; pass: boolean }[];
+  caption?: string;
+};
+
+export type StatsExhibit = {
+  kind: "stats";
+  title: string;
+  /** Lines added and removed; drawn as a proportional bar. */
+  diff?: { added: number; removed: number };
+  items: { value: string; label: string }[];
+  caption?: string;
+};
+
+export type TimelineExhibit = {
+  kind: "timeline";
+  title: string;
+  /** `span` marks a stretch of time rather than a moment. */
+  items: { when: string; event: string; span?: boolean }[];
+  caption?: string;
+};
+
+export type Exhibit = BarsExhibit | StatsExhibit | TimelineExhibit;
+
+export type MediaItem = Media | MediaGroup | Placeholder | Exhibit;
+
+/** A titled point: a problem, a lesson. */
+export type Point = {
+  title: string;
+  body: string;
+};
 
 export type Rejected = {
   option: string;
@@ -90,6 +151,8 @@ export type Stakes = {
 export type Read = {
   heading: string;
   body: Para[];
+  /** When the read is several distinct findings, number them. */
+  points?: Point[];
   evidence?: Evidence[];
   media?: MediaItem[];
 };
@@ -97,6 +160,8 @@ export type Read = {
 /** BEAT 3 — The bet. A decision, stated with the roads not taken. */
 export type Bet = {
   heading: string;
+  /** The bet in one line, when it can be said in one. Set large, before the prose. */
+  pull?: string;
   body: Para[];
   /** At least one. A bet with no rejected alternative was not a decision. */
   rejected: [Rejected, ...Rejected[]];
@@ -116,7 +181,16 @@ export type WorkChapter = {
 export type Friction = {
   heading: string;
   body: Para[];
+  /** Two sides of one disagreement: what was visible, and what was argued. */
+  dispute?: {
+    seen: { label: string; items: string[] };
+    argued: { label: string; items: string[] };
+  };
+  /** How it resolved, when the resolution was itself a decision. */
+  resolution?: { heading: string; body: Para[] };
   tradeoffs: [Tradeoff, ...Tradeoff[]];
+  /** The one line worth carrying out of the study. */
+  lesson?: string;
   /** The best friction image is the thing you cut. */
   media?: MediaItem[];
 };
@@ -126,6 +200,8 @@ export type Outcome = {
   heading: string;
   body: Para[];
   metrics: Metric[];
+  /** What I'd do differently. */
+  hindsight?: Point[];
 };
 
 export type CaseStudy = {
@@ -137,14 +213,18 @@ export type CaseStudy = {
   blurb: string;
   period: string;
   role: string;
+  /** How far the work reaches. One line, shown with role and timeline. */
+  scope?: string;
   collaborators: string[];
   disciplines: string[];
   /** Hidden from the index while true. */
   draft?: boolean;
   /** Opens the study, full width, beneath the header. */
-  hero?: Media;
+  hero?: Media | Placeholder;
   /** Shown on the index. Transparent background; sits on the paper. */
-  thumb?: Media;
+  thumb?: Media | Placeholder;
+  /** A closing line beneath the study: what was withheld, and why. */
+  note?: string;
 
   stakes: Stakes;
   read: Read;
@@ -156,6 +236,8 @@ export type CaseStudy = {
 
 export const BASIS_LABEL: Record<MetricBasis, string> = {
   realized: "Measured",
+  shipped: "Shipped",
+  estimated: "Estimate",
   projected: "Projected",
   pilot: "Pilot",
   target: "Target",

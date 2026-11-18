@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
+import { ZoomImage } from "@/components/zoom-image";
+import { typeset } from "@/lib/typeset";
 
-export type Slide = { src: string; alt: string; caption?: string; w: number; h: number };
+export type Slide = { src: string; alt: string; caption?: string; w: number; h: number; plate?: boolean };
 
 function Chevron({ dir }: { dir: "left" | "right" }) {
   return (
@@ -60,19 +61,21 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
           {slides.map((s, k) => (
             <div
               key={s.src}
-              aria-hidden={k !== i}
-              className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-out"
-              style={{ opacity: k === i ? 1 : 0, pointerEvents: k === i ? "auto" : "none" }}
+              inert={k !== i}
+              className="absolute inset-0 transition-opacity duration-500 ease-out"
+              style={{ opacity: k === i ? 1 : 0 }}
             >
-              <Image
+              <ZoomImage
                 src={s.src}
                 alt={s.alt}
-                width={s.w}
-                height={s.h}
-                unoptimized={s.src.endsWith(".gif")}
-                className="max-h-full w-auto max-w-full object-contain"
+                w={s.w}
+                h={s.h}
+                plate={s.plate}
+                caption={s.caption ? typeset(s.caption) : undefined}
+                className="flex h-full w-full items-center justify-center"
+                imgClassName="max-h-full w-auto max-w-full object-contain"
                 sizes="(max-width: 1088px) 100vw, 64rem"
-                priority={k === 0}
+                preload={k === 0}
               />
             </div>
           ))}
@@ -108,11 +111,11 @@ export function Slideshow({ slides, caption }: { slides: Slide[]; caption?: stri
           </div>
         )}
         <figcaption className="measure min-h-[2.5rem] text-center text-sm leading-relaxed text-muted">
-          {slides[i]?.caption ?? caption}
+          {typeset(slides[i]?.caption ?? caption ?? "")}
         </figcaption>
       </div>
       {caption && slides[i]?.caption && (
-        <p className="measure mx-auto mt-2 text-center text-sm leading-relaxed text-faint">{caption}</p>
+        <p className="measure mx-auto mt-2 text-center text-sm leading-relaxed text-faint">{typeset(caption)}</p>
       )}
     </figure>
   );

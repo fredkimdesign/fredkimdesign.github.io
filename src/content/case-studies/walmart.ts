@@ -11,9 +11,9 @@ export const walmart: CaseStudy = {
   draft: true,
 
   title:
-    "A design system is adopted, not enforced — so the hard part is relational, not technical",
+    "Getting teams across Walmart to adopt one design system",
   blurb:
-    "Walmart's design standards have to hold across many businesses and international markets at once. I work on the patterns, and on the harder problem: a bar high enough to be worth adopting is also high enough to strand teams that need to move fast.",
+    "Walmart's design standards must work across many businesses and international markets. I work on the shared patterns, and on keeping a high quality bar from blocking teams that need to move fast.",
   period: "2026–present",
   role: "Senior UX Designer, Design Systems",
   collaborators: ["Design Systems", "Platform Engineering", "Tenant feature teams"],
@@ -21,60 +21,60 @@ export const walmart: CaseStudy = {
   thumb: { src: "/work/walmart/tenants.webp", alt: "Walmart, Sam's Club, Member's Mark, and Bodega Aurrera logos" },
 
   stakes: {
-    heading: "One standard, many owners, no authority to compel it",
+    heading: "One standard, many teams, and no way to require it",
     body: [
-      "Walmart is many businesses and many markets, each with its own roadmap and its own patterns. Left alone, each re-decides usability, accessibility, and scalability from scratch, badly, in parallel. The cost isn't inconsistency. It's the same problem solved wrong dozens of times.",
+      "Walmart spans many businesses and markets, each with its own roadmap and patterns. Without a shared system, each team solves usability, accessibility, and scale on its own, and the same problem gets solved badly many times.",
     ],
     constraint:
-      "A tenant's preferred pattern isn't automatically wrong, and the system can't overrule one. Adoption is voluntary in practice even where it's mandated on paper.",
+      "The system can't overrule a team's preferred pattern. In practice adoption is voluntary, even where it's required.",
     media: [
       {
         src: "/work/walmart/tenants.webp",
         alt: "Four tenant logos: Walmart, Sam's Club, Member's Mark, Bodega Aurrera",
-        caption: "Four of the tenants. Each one is a business with its own identity and its own reasons to say no.",
+        caption: "Four of the brands the system supports. Each has its own identity and its own reasons to push back.",
       },
     ],
   },
 
   read: {
-    heading: "The disagreement isn't about quality. It's about frame size.",
+    heading: "Most disagreements were about scope",
     body: [
-      "When a feature team pushes back, it's rarely because they want a worse experience. They're judging against the only scope they can see, and within it they're often right. The system's frame is every tenant and every market. The two sides aren't in conflict on the merits — they're answering different questions, and only one side knows it.",
-      "So the work is relational. You can't resolve a frame-size mismatch by being right — that's what you already were. You resolve it by making the larger frame visible without spending the team's goodwill to do it.",
+      "When a feature team pushes back, they're judging a pattern against their own product, and within that scope they're often right. The system has to work for every brand and market. Both sides can be right.",
+      "So much of the work is showing teams the wider picture without burning their goodwill.",
     ],
     evidence: [
       {
         kind: "audit",
-        what: "Reviewing tenant requests against the system as they arrived, one at a time, and noting why each one was really being made.",
-        found: "Almost every request that presented as a quality disagreement was a scope disagreement: the pattern was right for one surface and wrong for the rest. That reframed the job from defending decisions to widening the frame.",
+        what: "Reviewing each request as it came in and noting the reason behind it.",
+        found: "Most requests that looked like quality disputes were about scope: the pattern worked for one product and not the others.",
       },
     ],
   },
 
   bet: {
-    heading: "Draw the line at behavior, not appearance",
+    heading: "Brands control the look; the system controls behavior",
     body: [
-      "Where the line sits between tenant and system is the whole design. Too tight and tenants fork; too loose and the system guarantees nothing. We put it at behavior: theming, tokens, and variants are the tenant's, because a business should look like itself. Structure, interaction, and accessibility aren't negotiable, because they have to survive a locale nobody in the room has thought about yet.",
+      "Too strict and teams build their own; too loose and the system guarantees nothing. We drew the line at behavior. Theming, tokens, and variants belong to each brand. Structure, interaction, and accessibility are fixed, so they hold up in every market.",
     ],
     rejected: [
       {
-        option: "Absorb each tenant's existing patterns as-is",
-        why: "Immediate adoption, and the system becomes documentation of variance rather than a source of guarantees.",
+        option: "Adopt each brand's existing patterns as they are",
+        why: "Instant adoption, but the system would only document differences.",
       },
       {
-        option: "Lock appearance too",
-        why: "Uniformity at the price of adoption. Businesses that can't look like themselves don't opt in.",
+        option: "Lock down appearance too",
+        why: "Businesses that can't look like themselves won't opt in.",
       },
       {
-        option: "One version, everyone upgrades together",
-        why: "Impossible to schedule across this many roadmaps. We run multiple versions and carry the maintenance cost, because a forced upgrade is the fastest way to make a tenant fork.",
+        option: "One version that everyone upgrades to together",
+        why: "Impossible to schedule across this many roadmaps. We run several versions and absorb the maintenance cost, because forced upgrades push teams to build their own.",
       },
     ],
     media: [
       {
         src: "/work/walmart/tokens-doc.webp",
         alt: "Spacing and Layout documentation page for a text area component, annotated with token references and measurements",
-        caption: "What 'not negotiable' looks like in practice: spacing, sizing, and padding specified in tokens a tenant can theme but not restructure.",
+        caption: "Spacing, sizing, and padding are specified as tokens. A brand can theme them but can't change the structure.",
         width: "full",
       },
     ],
@@ -83,49 +83,49 @@ export const walmart: CaseStudy = {
   work: [
     {
       title: "Item Tile",
-      goal: "The most-rendered component in retail, made to hold across every tenant and every market at once.",
+      goal: "The most common component in retail, built to work for every brand and market.",
       body: [
-        "A tile appears in search, browse, carousels, recommendations, cart, and ads. Every tenant has a stake in it and every merchandising, pricing, and ads team wants room on it — the hardest test of the line, because tile requests are about content hierarchy, and hierarchy sits right on it.",
-        "Theme, tokens, and use-case variants are the tenant's. Structure, interaction, and the accessibility contract hold everywhere — a tile is a link wrapping other controls, and the keyboard path through it isn't something a market gets to redecide. In build now, with tenants integrating; results when they exist.",
+        "The tile appears in search, browse, carousels, recommendations, cart, and ads, and merchandising, pricing, and ads teams all want space on it. Most requests are about content hierarchy, which makes it the hardest test of the line.",
+        "Brands control theme, tokens, and variants. Structure, interaction, and keyboard navigation stay the same everywhere. In build now, with teams integrating.",
       ],
       media: [
         {
           src: "/work/walmart/item-carousel.webp",
           alt: "Item Carousel component spec: copy limits, 4-up and 2-up layouts, light and dark mode",
           width: "full",
-          caption: "The carousel that hosts the tile. Notice what is pinned — copy limits, the 4-up and 2-up grids, the light and dark contract — and what isn't: colour, type, and brand are the tenant's.",
+          caption: "The carousel that holds the tile. Copy limits, the 4-up and 2-up grids, and light and dark mode are fixed. Color, type, and branding are up to each brand.",
         },
       ],
     },
     {
       title: "Versioning and adoption",
-      goal: "Let many roadmaps move at their own speed without splintering the standard.",
+      goal: "Let teams move at their own pace without splitting the standard.",
       body: [
-        "Multiple versions run concurrently, and adoption is pursued across all tenants at once — so every change has to be defensible to everyone. That is why the system ships with a spec even under deadline: a pattern nobody can explain is a pattern nobody keeps.",
+        "Several versions run at once, and every change has to work for all brands. We write a spec for each change, even under deadline, because teams don't keep patterns they can't understand.",
       ],
     },
     {
       title: "The experimental layer",
-      goal: "Give feature teams a sanctioned way to move fast without leaving the system.",
+      goal: "Give feature teams an approved way to move fast without leaving the system.",
       body: [
-        "The system layer is robust and slow; a custom surface is fast and guarantees nothing. Between them there was nothing, so a team with an urgent need had two bad options. We're building the third: ship quickly under lighter requirements, with a path back into the system for patterns that prove themselves. In build now.",
+        "The system is reliable but slow; a custom build is fast but guarantees nothing. We're building a middle option: ship quickly with lighter requirements, and move patterns that work into the system later. In build now.",
       ],
     },
   ],
 
   friction: {
-    heading: "For a while, the standard was me",
+    heading: "I was part of the problem",
     body: [
-      "I default to defending the system, and for a long time I read that as the job. But a bar high enough to be worth adopting also strands people — and the stranded teams were the ones who depended on us most. Saying no was defensible every time and wrong in aggregate: they build it themselves, and the thing I was protecting against happens anyway, outside my view and undocumented. The experimental layer exists because of that. It's a structural answer to a failure mode that was mine.",
+      "My instinct was to defend the system. But each \"no\" pushed a team to build its own version anyway, outside the system and undocumented, and those teams often depended on us most. The experimental layer came from recognizing that.",
     ],
     tradeoffs: [
       {
-        gaveUp: "A single version and a clean migration story",
-        toGet: "Tenants who upgrade on their own roadmap instead of forking",
+        gaveUp: "A single version and a simple migration path",
+        toGet: "Teams that upgrade on their own schedule instead of building their own",
       },
       {
-        gaveUp: "Full documentation before every ship",
-        toGet: "Urgent releases that still carry some design documentation — an imperfect floor, held",
+        gaveUp: "Full documentation before every release",
+        toGet: "Urgent releases that still include some design documentation",
       },
     ],
   },
@@ -133,7 +133,7 @@ export const walmart: CaseStudy = {
   outcome: {
     heading: "Where it stands",
     body: [
-      "This is current work, so the numbers are scope rather than results. Three product pillars are building on the subsystem today, several system versions run in parallel by design, and the experimental tier is in build. The measure that matters — whether teams reach for the system instead of around it — is the one I'll be able to report next.",
+      "This work is ongoing, so these numbers describe scope, not results. Three product pillars build on the system today, and the experimental layer is in build. The measure I care about, whether teams use the system instead of working around it, comes next.",
     ],
     metrics: [
       {

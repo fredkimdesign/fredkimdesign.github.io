@@ -28,6 +28,31 @@ function videoSize(file) {
   return null;
 }
 
+// A "plate" is an image that is an opaque rectangle — a screenshot, a photo,
+// a mock-up on its own backdrop — as opposed to a cut-out that sits directly
+// on the paper. Plates get soft corners like video; cut-outs get nothing.
+// Detected rather than declared: mean alpha near 1, or four opaque corners
+// (sampled a few px in, because exports often antialias the outermost column).
+function isPlate(file) {
+  try {
+    const corner = (x, y) => `crop=1:1:${x}:${y}`;
+    const graph =
+      "[0:v]format=rgba,alphaextract,split=5[m][a][b][c][d];" +
+      "[m]scale=1:1:flags=area[m1];" +
+      `[a]${corner("4", "4")}[a1];[b]${corner("iw-5", "4")}[b1];[c]${corner("4", "ih-5")}[c1];[d]${corner("iw-5", "ih-5")}[d1];` +
+      "[m1][a1][b1][c1][d1]hstack=5";
+    const px = execFileSync(
+      "ffmpeg",
+      ["-loglevel", "error", "-i", file, "-frames:v", "1", "-filter_complex", graph, "-f", "rawvideo", "-pix_fmt", "gray", "-"],
+      { stdio: ["ignore", "pipe", "ignore"] },
+    );
+    const [mean, ...corners] = px;
+    return mean >= 250 || corners.every((a) => a >= 250);
+  } catch {
+    return null; // no ffmpeg: keep whatever the last run recorded
+  }
+}
+
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
@@ -40,11 +65,23 @@ function walk(dir, out = []) {
   return out;
 }
 
+let previous = {};
+try {
+  previous = JSON.parse(readFileSync(OUT, "utf8"));
+} catch {}
+
+// Each entry is [width, height] or, for a plate, [width, height, 1].
 const dims = {};
 for (const file of walk(join(ROOT, "work")).sort()) {
   const ext = file.slice(file.lastIndexOf(".")).toLowerCase();
+  const key = "/" + relative(ROOT, file);
   const size = videoExts.has(ext) ? videoSize(file) : imageSize(readFileSync(file));
-  if (size) dims["/" + relative(ROOT, file)] = [size.width, size.height];
+  if (!size) continue;
+  const plate = videoExts.has(ext) ? false : (isPlate(file) ?? previous[key]?.[2] === 1);
+  dims[key] = plate ? [size.width, size.height, 1] : [size.width, size.height];
 }
-writeFileSync(OUT, JSON.stringify(dims, null, 2) + "\n");
+const body = Object.entries(dims)
+  .map(([k, v]) => `  ${JSON.stringify(k)}: [${v.join(", ")}]`)
+  .join(",\n");
+writeFileSync(OUT, `{\n${body}\n}\n`);
 console.log(`media-dims: ${Object.keys(dims).length} images`);

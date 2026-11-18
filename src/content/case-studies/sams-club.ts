@@ -4,9 +4,9 @@ export const samsClub: CaseStudy = {
   slug: "sams-club",
   company: "Sam's Club",
   title:
-    "Reaching 1.8M members who had no way to hear from us — and no way to answer back",
+    "Giving Sam's Club a way to reach members outside of email",
   blurb:
-    "Sam's Club could only reach members by email. I designed the in-app inbox, the member community, and the campaign workflow behind them as one loop.",
+    "Sam's Club could reach members only by email and had no direct way to hear back. I designed the in-app Message Center, the Member's Mark Community, and the marketing workflow behind them.",
   period: "2023–2026",
   role: "Senior UX Designer, end to end",
   collaborators: ["Product", "Engineering", "Marketing", "Content", "Legal"],
@@ -18,44 +18,44 @@ export const samsClub: CaseStudy = {
   },
 
   stakes: {
-    heading: "One channel, and it was leaking",
+    heading: "Email was the only channel",
     body: [
-      "Sam's Club had one way to reach a member: email. A member who didn't open email wasn't under-engaged — they were outside the system entirely. And the gap ran both ways: there was no owned channel for member feedback, so Member's Mark decisions rested on slow, expensive vendor panels.",
+      "Email was the only channel to members, so anyone who didn't open email never heard from us. There was also no channel for feedback, so Member's Mark product decisions relied on slow, expensive vendor panels.",
     ],
     constraint:
-      "Message Center was net-new surface in an app members already knew. No mental model existed for it, and nobody reads an onboarding tour.",
+      "Message Center was new in an app members already knew. They had no reason to look for it, and few read onboarding tours.",
     media: [
       {
         src: "/work/sams-club/one-channel.webp",
         alt: "Diagram: of four possible channels between Sam's Club and members, only marketing email is active",
         caption:
-          "Four channels drawn, one lit. Every member who ignored email was invisible to all of them.",
+          "Four possible channels to members. Only marketing email was in use.",
         width: "full",
       },
     ],
   },
 
   read: {
-    heading: "Three briefs, one loop",
+    heading: "Three projects that depended on each other",
     body: [
-      "These arrived as three requests from three owners — an inbox, a community, a campaign tool. Built separately, each would have shipped and none would have mattered: an inbox with nothing good in it, a community that couldn't route what it learned, campaign tooling with no channel to deliver into.",
-      "What they shared was a loop. Marketing decides what to say, Message Center delivers it, the community says whether it landed, and that changes what Marketing says next.",
+      "These came in as three requests from three owners: an inbox, a community, and a campaign tool. None works alone. An inbox needs content, a community needs somewhere to send what it learns, and a campaign tool needs a channel.",
+      "Together they form a cycle: Marketing decides what to send, Message Center delivers it, and the community's response shapes the next message.",
     ],
   },
 
   bet: {
-    heading: "Build the channel before the campaign",
+    heading: "Ship the inbox before the automation",
     body: [
-      "Marketing automation had the cleanest ROI and the most stakeholder pull, and I argued it shouldn't go first. Automating a workflow whose only outlet was email would have made an underperforming channel more efficient without adding a single reachable member. The inbox went first.",
+      "Marketing automation had the clearest ROI and the most stakeholder support. I argued against doing it first: with email as its only outlet, it wouldn't reach a single new member. We built the inbox first.",
     ],
     rejected: [
       {
         option: "Ship marketing automation first",
-        why: "Loudest ask, easiest ROI story — and it would have optimized email delivery to the members who were already reachable.",
+        why: "Easiest ROI case, but it only improved delivery to members we could already reach.",
       },
       {
         option: "Buy a vendor community platform",
-        why: "Faster to stand up, and it reproduces the failure we were replacing: member insight in someone else's system, priced per seat.",
+        why: "Faster to set up, but member insight would sit in a vendor's system, priced per seat. That's what we were replacing.",
       },
     ],
   },
@@ -63,9 +63,9 @@ export const samsClub: CaseStudy = {
   work: [
     {
       title: "Message Center",
-      goal: "Let members find a feature they've never heard of, without being taught it.",
+      goal: "Help members find a new feature without having to be taught it.",
       body: [
-        "A native inbox and push, for the first time. We tested red badges at three levels — app icon, account tab, Messages tile — so the path down was legible at each step with no explanation attached. Message types share one structure, so adding a category is a content decision, not a rebuild.",
+        "The app's first native inbox and push notifications. We tested red badges on the app icon, account tab, and Messages tile so members could follow them to the inbox without instructions. All message types share one structure, so a new category is a content change, not an engineering project.",
       ],
       media: [
         {
@@ -80,15 +80,15 @@ export const samsClub: CaseStudy = {
               alt: "Animation of navigating from the account tab into Message Center",
             },
           ],
-          caption: "Badge on the tab, badge on the row, then the inbox. Each level answers the one before it — and the path, as tested.",
+          caption: "The badge path as tested: a badge on the tab, then on the row, then the inbox.",
         },
       ],
     },
     {
       title: "Member's Mark Community",
-      goal: "Give the insights team a feedback loop they own.",
+      goal: "Give the insights team a way to hear from members directly.",
       body: [
-        "The associate side: recruit members into the panel, launch research activities, and turn participation into something a merchandising decision can rest on. Rapid prototypes, tight stakeholder loops.",
+        "I designed the associate side: recruiting members, launching research activities, and turning responses into input for merchandising decisions.",
       ],
       media: [
         {
@@ -109,9 +109,9 @@ export const samsClub: CaseStudy = {
     },
     {
       title: "Marketing automation",
-      goal: "Close the gap between planning a campaign and delivering it.",
+      goal: "Shorten the time between planning a campaign and sending it.",
       body: [
-        "I ran a two-day cross-functional workshop to find where the time actually went, then prototyped an integrated workflow. The part I care about most is personalization — with Content, shaping how messages get prioritized. Relevance as a property of the product, not a layer marketing applies on top.",
+        "I ran a two-day cross-team workshop to find where campaign time went, then prototyped a connected workflow. Most of my effort went into personalization: working with Content on how messages are prioritized for each member.",
       ],
       media: [
         {
@@ -120,7 +120,7 @@ export const samsClub: CaseStudy = {
             {
               src: "/work/sams-club/workshop-matrix.webp",
               alt: "Impact/effort matrix from the workshop with clustered sticky notes",
-              caption: "Session three. Almost everything high-impact was also high-effort.",
+              caption: "From the third workshop session. Nearly every high-impact idea was also high-effort.",
             },
             {
               src: "/work/sams-club/ma-demo.gif",
@@ -130,7 +130,7 @@ export const samsClub: CaseStudy = {
             {
               src: "/work/sams-club/nba-module.webp",
               alt: "Next Best Action module spec across desktop and mobile, with and without the member's name",
-              caption: "Next Best Action: three nudges, with a fallback for members we can't name.",
+              caption: "Next Best Action: three suggested nudges, with a fallback for members we can't identify.",
             },
           ],
         },
@@ -139,9 +139,9 @@ export const samsClub: CaseStudy = {
   ],
 
   friction: {
-    heading: "Knowing which ideas to fight for",
+    heading: "Choosing what to push for",
     body: [
-      "Generating options was never the hard part. Deciding which to spend credibility on was. In-product analytics and native survey tooling both had real value and both hit engineering walls, and I couldn't win both in one quarter.",
+      "In-product analytics and native surveys were both valuable, and both hit engineering limits. I couldn't get both into one quarter, so I chose what kept the pilot on schedule.",
     ],
     tradeoffs: [
       {
@@ -157,16 +157,16 @@ export const samsClub: CaseStudy = {
       {
         src: "/work/sams-club/community-analytics.webp",
         alt: "Campaign performance dashboard with response-rate charts and participation bars, beside the member survey on a phone",
-        caption: "The analytics view we cut. It was designed, it was good, and it was the right thing to give up for the launch date.",
+        caption: "The analytics view we cut. The design was done, but dropping it kept the launch on schedule.",
         width: "full",
       },
     ],
   },
 
   outcome: {
-    heading: "How it added up",
+    heading: "Results",
     body: [
-      "Three workstreams, one loop. In 2026 the work moved with me into Walmart's design organization, where these patterns became the starting point for a multi-tenant system.",
+      "The three projects launched as one system. In 2026 I moved with the work to Walmart's design organization, where these patterns became the starting point for a design system shared across brands.",
     ],
     metrics: [
       {

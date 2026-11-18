@@ -1,4 +1,5 @@
 import { asset } from "@/lib/asset";
+import { typesetText } from "@/lib/typeset";
 
 export const metadata = { title: "About" };
 
@@ -51,9 +52,9 @@ export default function About() {
               <li key={org} className="border-rule grid grid-cols-[5.5rem_1fr] gap-4 border-b py-5">
                 <span className="text-xs text-faint tabular-nums pt-0.5">{when}</span>
                 <div>
-                  <div className="font-display text-lg leading-snug">{org}</div>
+                  <div className="font-display text-lg leading-snug">{typesetText(org)}</div>
                   <div className="mt-0.5 text-sm text-ink">{title}</div>
-                  <div className="mt-1 text-sm leading-relaxed text-muted">{note}</div>
+                  <div className="mt-1 text-sm leading-relaxed text-muted">{typesetText(note)}</div>
                 </div>
               </li>
             ))}
